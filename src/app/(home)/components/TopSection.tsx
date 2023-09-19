@@ -13,7 +13,7 @@ export const TopSection = () => {
         className="m-2 h-full w-64 rounded-3xl object-cover"
       />
       <div className="flex flex-col items-center">
-        <div className="flex w-full justify-start">
+        <div className="flex w-full justify-start px-4 pt-2">
           <P className="text-justify text-sm">
             Hi there, I&apos;m Benjamin, a Full-Stack software engineer from
             London! I love using both my creativity and my analytical skills to
