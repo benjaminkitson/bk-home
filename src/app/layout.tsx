@@ -1,3 +1,4 @@
+import { Background } from "@/components/Background";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="mb-7 w-9 text-gray-700">{children}</div>
+        <div className="relative z-10 min-h-screen w-screen bg-gradient-to-r from-blue-500 to-cyan-500 lg:h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
