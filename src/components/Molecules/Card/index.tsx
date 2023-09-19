@@ -7,7 +7,7 @@ export interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ children, className, href }) => {
-  const cardClasses = "flex w-full bg-white rounded-xl";
+  const cardClasses = "flex w-full bg-gray-100 rounded-xl";
 
   return href ? (
     <a className={appendClasses(cardClasses, className)} href={href}>

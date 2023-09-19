@@ -23,10 +23,10 @@ export const TopSection = () => {
         </div>
         <div className="my-4 flex w-36 justify-center">
           <a href="https://github.com/benjaminkitson" className="mr-6">
-            <BsGithub className=" fill-gray-300 text-3xl transition duration-500 hover:scale-90 hover:fill-black" />
+            <BsGithub className=" fill-gray-100 text-3xl transition duration-500 hover:scale-90 hover:fill-black" />
           </a>
           <a href="https://uk.linkedin.com/in/benjamin-kitson">
-            <BsLinkedin className="fill-gray-300 text-3xl transition duration-500 hover:scale-90 hover:fill-black" />
+            <BsLinkedin className="fill-gray-100 text-3xl transition duration-500 hover:scale-90 hover:fill-black" />
           </a>
         </div>
       </div>
