@@ -2,7 +2,7 @@ import { appendClasses } from "@/utils/appendClasses";
 
 interface TypographyProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export const H2: React.FC<TypographyProps> = ({ children, className }) => {
