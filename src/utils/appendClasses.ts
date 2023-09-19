@@ -3,6 +3,5 @@
  */
 export const appendClasses = (childClasses: string, parentClasses?: string) => {
   const toAppend = parentClasses ? " " + parentClasses : "";
-  console.log(toAppend);
   return childClasses + toAppend;
 };
