@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { Cell } from "./components/Cell";
 import { Grid } from "./components/Grid";
 import { P } from "@/components/Atoms/Typography";
@@ -27,9 +34,11 @@ export default function Home() {
   //   length: 1,
   // };
 
+  // TODO: Turn all these useStates into one mighty reducer
+
   const [currentTime, setCurrentTime] = useState(0);
 
-  const gridSize = 40;
+  const [gridSize, setGridSize] = useState(20);
 
   const initialCoord = Math.floor(gridSize / 2);
 
@@ -44,6 +53,8 @@ export default function Home() {
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   const [tick, setTick] = useState(100);
+
+  const [score, setScore] = useState(0);
 
   /**
    * Not sure if this is fine as a ref or should be state
@@ -85,8 +96,11 @@ export default function Home() {
 
   useEffect(() => {
     if (isActive) {
+      let snakeHead: Coord;
+      let newSnake: Coord[];
+
       setSnake((snake) => {
-        return snake.map((segment, i) => {
+        newSnake = snake.map((segment, i) => {
           if (i === 0) {
             switch (direction.current) {
               case "RIGHT":
@@ -111,12 +125,49 @@ export default function Home() {
                 };
             }
           }
-
           return snake[i - 1];
         });
+
+        setSnakeFood((food) => {
+          const eatingFoodIndex = food.findIndex(
+            (food) => food.x === newSnake[0].x && food.y === newSnake[0].y,
+          );
+          if (eatingFoodIndex !== -1) {
+            setScore((score) => score + 1);
+            food.splice(eatingFoodIndex, 1);
+            newSnake.push(newSnake[newSnake.length - 1]);
+          }
+          return food;
+        });
+
+        return newSnake;
       });
+
+      if (currentTime % 10 === 0) {
+        const x = Math.floor(Math.random() * gridSize);
+        const y = Math.floor(Math.random() * gridSize);
+        const newSnekFood = { x, y };
+        setSnakeFood((snakeFood) => [...snakeFood, newSnekFood]);
+      }
     }
-  }, [currentTime, isActive]);
+  }, [currentTime, isActive, gridSize]);
+
+  /**
+   * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up
+   */
+  const grid = useMemo(() => {
+    const init: null[] = [];
+
+    for (let i = 0; i <= gridSize; i++) {
+      init.push(null);
+    }
+
+    const grid = init.map((item) => {
+      return [...init];
+    });
+
+    return grid;
+  }, [gridSize]);
 
   return (
     <div className="flex h-full flex-col items-center justify-center">
@@ -132,7 +183,23 @@ export default function Home() {
       >
         SPEED
       </button>
-      <Grid gridSize={gridSize} snake={snake} />
+      {/* 
+      Mapping over the grid on every render doesn't seem efficient
+      I'm pretty sure it's causing performance problems at higher grid sizes 
+      */}
+      {grid.map((row, y) => (
+        <div className="flex flex-row" key={y}>
+          {row.map((cell, x) => {
+            const isSnek = snake.some(
+              (segment) => segment.x === x && segment.y === y,
+            );
+            const isFood = snakeFood.some(
+              (food) => food.x === x && food.y === y,
+            );
+            return <Cell key={x} isSnek={isSnek} isFood={isFood} />;
+          })}
+        </div>
+      ))}
       <button
         onClick={() => (direction.current = "UP")}
         className={"mt-2 h-10 rounded-full bg-blue-600 px-5"}
@@ -159,6 +226,7 @@ export default function Home() {
       >
         DOWN
       </button>
+      <P>{score}</P>
     </div>
   );
 }

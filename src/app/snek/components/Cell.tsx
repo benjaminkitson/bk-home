@@ -1,9 +1,24 @@
-export const Cell = ({ isSnek }) => {
+import { memo } from "react";
+
+interface CellProps {
+  isSnek: boolean;
+  isFood: boolean;
+}
+
+const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
+  console.log("render");
+
+  const bg = isSnek
+    ? "bg-blue-500"
+    : isFood
+    ? "bg-green-500"
+    : "bg-white opacity-30";
+
   return (
     <div
-      className={`mb-1 mr-1 h-4 w-4 rounded-sm border border-white ${
-        isSnek ? "bg-blue-500" : "bg-white opacity-30"
-      }`}
+      className={`mb-[2px] mr-[2px] h-2 w-2 rounded-sm border border-white ${bg}`}
     ></div>
   );
 };
+
+export const Cell = memo(UnmemoizedCell);
