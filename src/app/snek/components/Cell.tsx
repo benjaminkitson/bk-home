@@ -6,8 +6,6 @@ interface CellProps {
 }
 
 const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
-  console.log("render");
-
   const bg = isSnek
     ? "bg-blue-500"
     : isFood
