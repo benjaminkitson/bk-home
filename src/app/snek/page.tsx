@@ -10,7 +10,7 @@ import {
 } from "react";
 import { Cell } from "./components/Cell";
 import { Grid } from "./components/Grid";
-import { P } from "@/components/Atoms/Typography";
+import { H2, P } from "@/components/Atoms/Typography";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 
@@ -38,7 +38,7 @@ export default function Home() {
 
   const [currentTime, setCurrentTime] = useState(0);
 
-  const [gridSize, setGridSize] = useState(20);
+  const [gridSize, setGridSize] = useState(40);
 
   const initialCoord = Math.floor(gridSize / 2);
 
@@ -62,6 +62,8 @@ export default function Home() {
   // const direction = useState<Direction>("UP");
   const direction = useRef("UP");
   const [isActive, setIsActive] = useState(false);
+
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const startClock = (i: number) => {
     timer.current = setInterval(() => {
@@ -139,6 +141,21 @@ export default function Home() {
           }
           return food;
         });
+
+        if (
+          newSnake
+            .slice(1, newSnake.length)
+            .some(
+              (segment) =>
+                newSnake[0].x === segment.x && newSnake[0].y === segment.y,
+            )
+        ) {
+          if (timer.current) {
+            clearTimeout(timer.current);
+          }
+          setIsActive(false);
+          setIsGameOver(true);
+        }
 
         return newSnake;
       });
@@ -227,6 +244,7 @@ export default function Home() {
         DOWN
       </button>
       <P>{score}</P>
+      {isGameOver && <H2>Game Over</H2>}
     </div>
   );
 }
