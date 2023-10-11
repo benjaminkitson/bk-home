@@ -27,6 +27,10 @@ type GameState = {
 };
 
 export default function Snek() {
+  /**
+   * Not sure if this is fine as a ref or should be state
+   */
+  // const [isActive, setIsActive] = useState(false);
   const direction = useRef("UP");
 
   useEffect(() => {

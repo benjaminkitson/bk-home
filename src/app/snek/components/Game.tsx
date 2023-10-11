@@ -19,12 +19,12 @@ type Coord = {
   y: number;
 };
 
-type GameState = {
-  currentDirection: Direction | null;
-  currentHead: Coord;
-  gridSize: number;
-  length: number;
-};
+// type GameState = {
+//   currentDirection: Direction | null;
+//   currentHead: Coord;
+//   gridSize: number;
+//   length: number;
+// };
 
 export default function Game({
   direction,
@@ -54,18 +54,13 @@ export default function Game({
 
   const [snakeFood, setSnakeFood] = useState<Coord[]>([]);
 
+  const [isActive, setIsActive] = useState(false);
+
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   const [tick, setTick] = useState(100);
 
   const [score, setScore] = useState(0);
-
-  /**
-   * Not sure if this is fine as a ref or should be state
-   */
-  // const direction = useState<Direction>("UP");
-  //   const direction = useRef("UP");
-  const [isActive, setIsActive] = useState(false);
 
   const [isGameOver, setIsGameOver] = useState(false);
 
@@ -172,29 +167,6 @@ export default function Game({
       }
     }
   }, [currentTime, isActive, gridSize, direction]);
-
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      switch (e.key) {
-        case "ArrowUp":
-          direction.current = "UP";
-          break;
-        case "ArrowDown":
-          direction.current = "DOWN";
-          break;
-        case "ArrowLeft":
-          direction.current = "LEFT";
-          break;
-        case "ArrowRight":
-          direction.current = "RIGHT";
-          break;
-      }
-    });
-
-    return () => {
-      window.removeEventListener("keydown", () => console.log("test"));
-    };
-  }, []);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up

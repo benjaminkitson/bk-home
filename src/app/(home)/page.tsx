@@ -1,11 +1,17 @@
+"use client";
+
 import { TopSection } from "./components/TopSection";
 import { BottomSection } from "./components/BottomSection";
+import { useRef } from "react";
+import { ScrollRef } from "@/components/Atoms/ScrollLink";
 
 export default function Home() {
+  const portfolioScrollRef: ScrollRef = useRef(null);
+
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center px-5 py-2 lg:py-20">
-      <TopSection />
-      <BottomSection />
-    </div>
+    <>
+      <TopSection scrollRefs={{ portfolioScrollRef }} />
+      <BottomSection scrollRefs={{ portfolioScrollRef }} />
+    </>
   );
 }

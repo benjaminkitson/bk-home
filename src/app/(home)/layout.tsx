@@ -1,8 +1,12 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Benjamin Kitson",
@@ -16,8 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="relative z-10 min-h-screen w-screen bg-gradient-to-r from-blue-500 to-cyan-500 lg:h-screen">
+      <body className={roboto.className}>
+        <div className="relative z-10 min-h-screen w-screen bg-gradient-to-r from-blue-700 to-cyan-300">
           {children}
         </div>
       </body>

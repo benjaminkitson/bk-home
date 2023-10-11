@@ -5,6 +5,7 @@ import snek from "../../../snek.png";
 import tictactoe from "../../../tictactoe.png";
 import wordlnt from "../../../wordlnt.png";
 import { H2, P } from "@/components/Atoms/Typography";
+import { SectionProps } from "./TopSection";
 
 const portfolioItems = [
   {
@@ -30,13 +31,16 @@ const portfolioItems = [
   },
 ];
 
-export const BottomSection = () => {
+export const BottomSection: React.FC<SectionProps> = ({ scrollRefs }) => {
   return (
-    <div className="flex w-full grow flex-col items-center justify-center lg:flex-row">
+    <div
+      ref={scrollRefs.portfolioScrollRef}
+      className="flex h-screen w-full grow flex-col items-center justify-center p-5 lg:flex-row"
+    >
       {portfolioItems.map((item) => (
         <Card
           key={item.name}
-          className="m-2 h-32 w-full p-0 shadow-sm transition-transform duration-500 hover:scale-95 lg:h-80 lg:w-96 lg:flex-col"
+          className="m-4 h-40 w-full p-0 opacity-90 shadow-sm transition-all duration-500 hover:scale-95  hover:opacity-100 lg:h-96 lg:w-96 lg:flex-col"
           href={item.href}
         >
           <Image
@@ -46,8 +50,8 @@ export const BottomSection = () => {
             className="w-56 rounded-l-xl lg:h-56 lg:w-full lg:rounded-t-xl lg:rounded-bl-none"
           />
           <div className="flex w-full flex-col p-2">
-            <H2 className="mb-1">{item.name}</H2>
-            <P className="whitespace-wrap">{item.description}</P>
+            <H2 className="mb-4 mt-2">{item.name}</H2>
+            <P>{item.description}</P>
           </div>
         </Card>
       ))}
