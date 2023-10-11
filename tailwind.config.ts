@@ -19,6 +19,9 @@ const config: Config = {
       fontFamily: {
         sans: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
+      transitionDuration: {
+        "2000": "2000ms",
+      },
     },
   },
 };
