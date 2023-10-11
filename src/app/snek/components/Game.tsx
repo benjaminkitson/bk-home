@@ -234,15 +234,15 @@ export default function Game({
         DOWN
       </button>
       <P>{score}</P>
-      {isGameOver && <H2>Game Over</H2>}
+
       {!isActive && (
         <Modal>
-          {" "}
+          {isGameOver && <H2>Game Over</H2>}{" "}
           <button
             onClick={isActive ? stop : start}
             className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
           >
-            Button
+            Play!
           </button>
         </Modal>
       )}
