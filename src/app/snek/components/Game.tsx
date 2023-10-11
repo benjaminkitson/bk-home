@@ -11,6 +11,7 @@ import {
 } from "react";
 import { Cell } from "../components/Cell";
 import { H2, P } from "@/components/Atoms/Typography";
+import { Modal } from "@/components/Molecules/Modal";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 
@@ -42,7 +43,7 @@ export default function Game({
 
   const [currentTime, setCurrentTime] = useState(0);
 
-  const [gridSize, setGridSize] = useState(40);
+  const [gridSize, setGridSize] = useState(30);
 
   const initialCoord = Math.floor(gridSize / 2);
 
@@ -189,18 +190,6 @@ export default function Game({
 
   return (
     <div className="flex h-full flex-col items-center justify-center">
-      <button
-        onClick={isActive ? stop : start}
-        className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
-      >
-        Button
-      </button>
-      <button
-        onClick={increaseSpeed}
-        className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
-      >
-        SPEED
-      </button>
       {/* 
       Mapping over the grid on every render doesn't seem efficient
       I'm pretty sure it's causing performance problems at higher grid sizes 
@@ -220,7 +209,7 @@ export default function Game({
       ))}
       <button
         onClick={() => (direction.current = "UP")}
-        className={"mt-2 h-10 rounded-full bg-blue-600 px-5"}
+        className={"mt-20 h-10 rounded-full bg-blue-600 px-5"}
       >
         UP
       </button>
@@ -246,6 +235,17 @@ export default function Game({
       </button>
       <P>{score}</P>
       {isGameOver && <H2>Game Over</H2>}
+      {!isActive && (
+        <Modal>
+          {" "}
+          <button
+            onClick={isActive ? stop : start}
+            className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
+          >
+            Button
+          </button>
+        </Modal>
+      )}
     </div>
   );
 }
