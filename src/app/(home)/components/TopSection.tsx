@@ -13,14 +13,27 @@ export interface SectionProps {
 export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
-      <div className="flex h-5/6 w-5/6 flex-col items-center justify-center lg:flex-row">
-        <Image
-          src={me}
-          alt="Benjamin Kitson"
-          className="m-2 h-1/4 w-56 rounded-3xl object-cover lg:h-1/2"
-        />
+      <div className="flex w-5/6 flex-col items-center justify-center lg:flex-row">
+        <div className="flex h-full items-center lg:w-1/3">
+          <Image
+            src={me}
+            alt="Benjamin Kitson"
+            className="w-56 rounded-3xl object-cover lg:h-72 lg:w-full"
+          />
+          <div className="ml-4 flex flex-col justify-center lg:hidden">
+            <a href="https://github.com/benjaminkitson" className="m-6">
+              <BsGithub className=" fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
+            </a>
+            <a
+              href="https://uk.linkedin.com/in/benjamin-kitson"
+              className="m-6"
+            >
+              <BsLinkedin className="fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
+            </a>
+          </div>
+        </div>
         <div className="my-10 flex flex-col items-center lg:ml-14">
-          <div className="flex w-full flex-col justify-start px-4 pt-2">
+          <div className="flex w-full flex-col px-4 pt-2">
             <H1 className="mb-10">Hi there 👋</H1>
             <P className="mb-4">
               I&apos;m Benjamin, a Full-Stack software engineer from London! I
@@ -38,7 +51,10 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               or playing and writing music.{" "}
             </P>
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="flex h-20 md:hidden">
+            <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
+          </div>
+          <div className="mt-10 hidden justify-center lg:flex">
             <a href="https://github.com/benjaminkitson" className="mr-6">
               <BsGithub className=" fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
             </a>
@@ -48,7 +64,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
           </div>
         </div>
       </div>
-      <div className="flex h-1/6">
+      <div className="mt-20 hidden h-32 md:flex">
         <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
       </div>
     </div>
