@@ -18,14 +18,14 @@ export const DownLink: React.FC<DownLinkProps> = ({ portfolioScrollRef }) => {
         setCurrentSize((currentSize) =>
           currentSize === "text-7xl" ? "text-6xl" : "text-7xl",
         );
-      }, 2000);
+      }, 1000);
     }
   }, [currentSize]);
 
   return (
     <ScrollLink scrollRef={portfolioScrollRef}>
       <BsChevronDown
-        className={`cursor-pointer fill-gray-100 ${currentSize} duration-2000 transition-all hover:scale-90 hover:fill-black`}
+        className={`cursor-pointer fill-gray-100 ${currentSize} transition-all duration-1000 hover:scale-90 hover:fill-black`}
       />
     </ScrollLink>
   );
