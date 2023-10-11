@@ -1,8 +1,12 @@
-import { ScrollLink } from "@/components/Atoms/ScrollLink";
+import { ScrollLink, ScrollRef } from "@/components/Atoms/ScrollLink";
 import { useEffect, useRef, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 
-export const DownLink = ({ portfolioScrollRef }) => {
+interface DownLinkProps {
+  portfolioScrollRef: ScrollRef;
+}
+
+export const DownLink: React.FC<DownLinkProps> = ({ portfolioScrollRef }) => {
   const isLoaded = useRef(false);
 
   const [currentSize, setCurrentSize] = useState("text-7xl");

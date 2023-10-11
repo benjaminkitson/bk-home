@@ -48,7 +48,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
           </div>
         </div>
       </div>
-      <div className="h-1/6">
+      <div className="flex h-1/6 items-center justify-center">
         <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
       </div>
     </div>
