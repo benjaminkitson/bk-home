@@ -35,7 +35,7 @@ export const DirectionButton: React.FC<DirectionButtonProps> = ({
     <button
       onClick={onClick}
       className={appendClasses(
-        "flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-bold",
+        "flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 font-bold",
         className,
       )}
     >
