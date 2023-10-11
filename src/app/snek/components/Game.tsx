@@ -12,6 +12,13 @@ import {
 import { Cell } from "../components/Cell";
 import { H2, P } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
+import {
+  BsChevronDown,
+  BsChevronUp,
+  BsChevronLeft,
+  BsChevronRight,
+} from "react-icons/bs";
+import { DirectionButton } from "./DirectionButton";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 
@@ -207,37 +214,33 @@ export default function Game({
           })}
         </div>
       ))}
-      <button
+
+      <DirectionButton
         onClick={() => (direction.current = "UP")}
-        className={"mt-20 h-10 rounded-full bg-blue-600 px-5"}
-      >
-        UP
-      </button>
-      <div className="my-2">
-        <button
+        direction="UP"
+        className="mt-10"
+      />
+      <div className="flex">
+        <DirectionButton
           onClick={() => (direction.current = "LEFT")}
-          className={"mr-2 h-10 rounded-full bg-blue-600 px-5"}
-        >
-          LEFT
-        </button>
-        <button
+          direction="LEFT"
+          className="mr-10"
+        />
+        <DirectionButton
           onClick={() => (direction.current = "RIGHT")}
-          className={"h-10 rounded-full bg-blue-600 px-5"}
-        >
-          RIGHT
-        </button>
+          direction="RIGHT"
+        />
       </div>
-      <button
+      <DirectionButton
         onClick={() => (direction.current = "DOWN")}
-        className={"h-10 rounded-full bg-blue-600 px-5"}
-      >
-        DOWN
-      </button>
+        direction="DOWN"
+      />
+
       <P>{score}</P>
 
-      {!isActive && (
-        <Modal>
-          {isGameOver && <H2>Game Over</H2>}{" "}
+      {/* {!isActive && (
+        <Modal className="flex flex-col">
+          {isGameOver && <H2 className="mb-4">Game Over</H2>}
           <button
             onClick={isActive ? stop : start}
             className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
@@ -245,7 +248,7 @@ export default function Game({
             Play!
           </button>
         </Modal>
-      )}
+      )} */}
     </div>
   );
 }

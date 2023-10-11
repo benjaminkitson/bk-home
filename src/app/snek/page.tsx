@@ -12,7 +12,7 @@ import { Cell } from "./components/Cell";
 import { H2, P } from "@/components/Atoms/Typography";
 import Game from "./components/Game";
 
-type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
+export type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 
 type Coord = {
   x: number;
