@@ -220,7 +220,7 @@ export default function Game({
         direction="UP"
         className="mt-10"
       />
-      <div className="flex">
+      <div className="flex items-center justify-center">
         <DirectionButton
           onClick={() => (direction.current = "LEFT")}
           direction="LEFT"
@@ -238,7 +238,7 @@ export default function Game({
 
       <P>{score}</P>
 
-      {/* {!isActive && (
+      {!isActive && (
         <Modal className="flex flex-col">
           {isGameOver && <H2 className="mb-4">Game Over</H2>}
           <button
@@ -248,7 +248,7 @@ export default function Game({
             Play!
           </button>
         </Modal>
-      )} */}
+      )}
     </div>
   );
 }
