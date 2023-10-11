@@ -271,6 +271,7 @@ export default function Game({
         />
       </div>
       <DirectionButton
+        className="mb-24"
         onClick={() => (direction.current = "DOWN")}
         direction="DOWN"
       />
