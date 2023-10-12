@@ -43,7 +43,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               love using both my creativity and my analytical skills to build
               apps that deliver real value to users.
             </P>
-            <P className="hidden md:block">
+            <P className="mb-4">
               When I&apos;m not working on Penfold&apos;s customer-facing mobile
               app, I&apos;m probably either building some random personal
               project {" ("}
@@ -53,11 +53,15 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               {") "}
               or playing and writing music.{" "}
             </P>
+            <P>
+              This site has been lovingly crafted using TypeScript and NextJS,
+              and is hosted on AWS.
+            </P>
           </div>
-          <div className="flex h-20 md:hidden">
+          <div className="flex h-20 w-full md:hidden">
             <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
           </div>
-          <div className="mt-10 hidden justify-center lg:flex">
+          <div className="align-start mt-10 hidden w-full pl-4 lg:flex">
             <a href="https://github.com/benjaminkitson" className="mr-6">
               <BsGithub className=" fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
             </a>
