@@ -1,3 +1,5 @@
+"use client";
+
 import { ScrollLink, ScrollRef } from "@/components/Atoms/ScrollLink";
 import { useEffect, useRef, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";

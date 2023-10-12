@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import Board from ".";
 import { AppContext, AppContextType } from "../AppContext";
-import { RxCross1 } from "react-icons/rx";
 
 describe("Board", () => {
   // Not sure these really belong here, probably should be with the square component

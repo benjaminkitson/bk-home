@@ -48,6 +48,8 @@ export const BottomSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             alt={item.imgAlt}
             // className="h-full w-56 rounded-l-xl object-fill lg:h-56 lg:w-full lg:rounded-t-xl lg:rounded-bl-none"
             className="w-56 rounded-l-xl lg:h-56 lg:w-full lg:rounded-t-xl lg:rounded-bl-none"
+            placeholder="blur"
+            quality={1}
           />
           <div className="flex w-full flex-col p-2">
             <H2 className="mb-4 mt-2">{item.name}</H2>

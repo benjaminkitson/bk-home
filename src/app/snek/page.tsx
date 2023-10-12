@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-  useState,
-} from "react";
-import { Cell } from "./components/Cell";
-import { H2, P } from "@/components/Atoms/Typography";
+import { useEffect, useRef } from "react";
 import Game from "./components/Game";
 
 export type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";

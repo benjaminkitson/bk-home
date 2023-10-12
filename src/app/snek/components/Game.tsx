@@ -7,10 +7,9 @@ import {
   useMemo,
   useReducer,
   useRef,
-  useState,
 } from "react";
 import { Cell } from "../components/Cell";
-import { H1, H2, P } from "@/components/Atoms/Typography";
+import { H1, H2 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
 import { DirectionButton } from "./DirectionButton";
 
