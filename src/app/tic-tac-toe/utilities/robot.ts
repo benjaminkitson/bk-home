@@ -2,7 +2,7 @@ import { BoardType } from "../components/Content";
 
 const mrRobot = (
   board: BoardType,
-  setBoard: React.Dispatch<React.SetStateAction<BoardType>>
+  setBoard: React.Dispatch<React.SetStateAction<BoardType>>,
 ) => {
   const newBoard: BoardType = [...board];
 
@@ -62,10 +62,10 @@ const mrRobot = (
   Object.keys(victoryAims).forEach((option) => {
     const twoOs =
       victoryAims[option].filter(
-        (square) => newBoard[square[0]][square[1]] === "O"
+        (square) => newBoard[square[0]][square[1]] === "O",
       ).length === 2;
     const freeSpace = victoryAims[option].some(
-      (square) => newBoard[square[0]][square[1]] === undefined
+      (square) => newBoard[square[0]][square[1]] === undefined,
     );
     if (twoOs && freeSpace) {
       finishHim[option] = victoryAims[option];
@@ -80,10 +80,10 @@ const mrRobot = (
   Object.keys(victoryAims).forEach((option) => {
     const twoXs =
       victoryAims[option].filter(
-        (square) => newBoard[square[0]][square[1]] === "X"
+        (square) => newBoard[square[0]][square[1]] === "X",
       ).length === 2;
     const freeSpace = victoryAims[option].some(
-      (square) => newBoard[square[0]][square[1]] === undefined
+      (square) => newBoard[square[0]][square[1]] === undefined,
     );
     if (twoXs && freeSpace) {
       defenceMode[option] = victoryAims[option];
@@ -106,13 +106,13 @@ const mrRobot = (
   if (!Object.keys(options).length) {
     Object.keys(victoryAims).forEach((option) => {
       const oneO = victoryAims[option].some(
-        (square) => newBoard[square[0]][square[1]] === "O"
+        (square) => newBoard[square[0]][square[1]] === "O",
       );
       const freeSpace = victoryAims[option].some(
-        (square) => newBoard[square[0]][square[1]] === undefined
+        (square) => newBoard[square[0]][square[1]] === undefined,
       );
       const noXs = victoryAims[option].every(
-        (square) => newBoard[square[0]][square[1]] !== "X"
+        (square) => newBoard[square[0]][square[1]] !== "X",
       );
       if (oneO && freeSpace && noXs) {
         options[option] = victoryAims[option];
