@@ -10,7 +10,7 @@ import { SectionProps } from "./TopSection";
 const portfolioItems = [
   {
     name: "Snek",
-    description: "Retro snake game, built only with Vanilla JS, HTML and CSS",
+    description: "Retro snake game, built with React, TypeScript and Tailwind",
     href: "/snek",
     imgSrc: snek,
     imgAlt: "Snek portfolio image",
