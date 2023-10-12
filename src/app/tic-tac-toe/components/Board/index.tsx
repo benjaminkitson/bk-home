@@ -13,7 +13,12 @@ function Board() {
           <Row row={i} squares={row} key={i} />
         ))}
       </div>
-      <Button buttonColor="blue" buttonSize="lg" onClick={() => resetGame()}>
+      <Button
+        buttonColor="blue"
+        buttonSize="lg"
+        className="m-8"
+        onClick={() => resetGame()}
+      >
         Reset
       </Button>
     </>

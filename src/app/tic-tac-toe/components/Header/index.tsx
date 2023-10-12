@@ -5,7 +5,7 @@ function Header() {
   const { statusText } = useContext(AppContext);
 
   return (
-    <div className="relative flex h-32 w-full flex-col items-center justify-center">
+    <div className="relative my-10 flex w-full flex-col items-center justify-center">
       <h1 className="mb-5 text-4xl">Tic-Tac-Toe!</h1>
       <div className="flex flex-col items-center justify-center">
         {
