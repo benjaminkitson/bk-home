@@ -16,7 +16,7 @@ export const Modal: React.FC<ModalProps> = ({ children, className }) => {
       <Card
         className={twMerge(
           "flex h-56 w-3/4 items-center justify-center opacity-100 md:w-1/2",
-          className
+          className,
         )}
       >
         {children}

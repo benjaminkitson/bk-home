@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 type ButtonSize = "sm" | "md" | "lg";
 type ButtonColor = "blue" | "gray";
 
@@ -32,7 +34,7 @@ export const Button = ({
     buttonSize ? buttonSizeMap[buttonSize] : "",
   ];
 
-  const classes = `rounded-lg m-5 ${color} ${size} ${className || ""}`.trim();
+  const classes = twMerge(`rounded-lg m-5 ${color} ${size}`, className);
 
   return (
     <button onClick={onClick} className={classes}>

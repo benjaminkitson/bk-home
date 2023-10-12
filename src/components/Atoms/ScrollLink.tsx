@@ -1,4 +1,4 @@
-import { twMerge } from "@/utils/twMerge";
+import { twMerge } from "tailwind-merge";
 import { MutableRefObject } from "react";
 
 export type ScrollRef = MutableRefObject<null | HTMLDivElement>;

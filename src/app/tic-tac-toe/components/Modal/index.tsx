@@ -6,8 +6,7 @@ import { Button } from "../Button";
 const SelectPlayersButton = ({ gameMode }: { gameMode: GameMode }) => {
   const { setGameMode } = useContext(AppContext);
   // TODO: won't work for online multiplayer
-  const text =
-    gameMode === "SINGLE_PLAYER" ? "Single Player" : "Local Multi Player";
+  const text = gameMode === "SINGLE_PLAYER" ? "One player" : "Two players";
 
   return (
     <Button
@@ -29,7 +28,7 @@ function Modal() {
     <div
       className={`${
         gameMode ? "hidden" : "flex"
-      } absolute left-0 top-0 z-50 h-screen w-screen items-center justify-center bg-white`}
+      } min-w-screen absolute left-0 top-0 z-50 h-screen w-screen items-center justify-center bg-white`}
     >
       <div className="flex h-96 w-5/6 flex-col items-center justify-center rounded-xl bg-blue-500 md:w-1/2 lg:w-1/3">
         <h1 className="text-3xl">Select number of players:</h1>

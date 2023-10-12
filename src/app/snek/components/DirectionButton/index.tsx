@@ -5,7 +5,6 @@ import {
   BsChevronUp,
 } from "react-icons/bs";
 import { Direction } from "../../page";
-import { twMerge } from "@/utils/twMerge";
 import { twMerge } from "tailwind-merge";
 
 interface DirectionButtonProps {

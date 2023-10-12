@@ -18,7 +18,7 @@ export type BoardType = [RowType, RowType, RowType];
 export const Content = () => {
   return (
     <AppContextProvider>
-      <div className="relative flex h-full w-full flex-col items-center justify-center">
+      <div className="relative flex h-screen w-screen flex-col items-center justify-center">
         <Header />
         <div className="flex w-full grow flex-col items-center justify-start">
           <Board />

@@ -8,7 +8,7 @@ function Board() {
 
   return (
     <>
-      <div className="grid w-auto grid-rows-3 gap-4">
+      <div className="grid grid-rows-3 gap-2 md:gap-4">
         {board.map((row, i) => (
           <Row row={i} squares={row} key={i} />
         ))}

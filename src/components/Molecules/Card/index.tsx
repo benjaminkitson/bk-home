@@ -1,4 +1,4 @@
-import { twMerge } from "@/utils/twMerge";
+import { twMerge } from "tailwind-merge";
 
 export interface CardProps {
   children: React.ReactNode;
