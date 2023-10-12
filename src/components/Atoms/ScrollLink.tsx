@@ -1,4 +1,4 @@
-import { appendClasses } from "@/utils/appendClasses";
+import { twMerge } from "@/utils/twMerge";
 import { MutableRefObject } from "react";
 
 export type ScrollRef = MutableRefObject<null | HTMLDivElement>;
@@ -16,7 +16,7 @@ export const ScrollLink: React.FC<ScrollLinkProps> = ({
 }) => {
   return (
     <a
-      className={appendClasses(
+      className={twMerge(
         "cursor-pointer text-lg underline underline-offset-4 transition-all duration-200 hover:font-bold",
         className,
       )}

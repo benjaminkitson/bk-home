@@ -5,7 +5,8 @@ import {
   BsChevronUp,
 } from "react-icons/bs";
 import { Direction } from "../../page";
-import { appendClasses } from "@/utils/appendClasses";
+import { twMerge } from "@/utils/twMerge";
+import { twMerge } from "tailwind-merge";
 
 interface DirectionButtonProps {
   onClick: () => void;
@@ -34,7 +35,7 @@ export const DirectionButton: React.FC<DirectionButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={appendClasses(
+      className={twMerge(
         "flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 font-bold",
         className,
       )}

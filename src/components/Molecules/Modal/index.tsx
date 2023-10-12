@@ -1,5 +1,5 @@
 import { Card } from "../Card";
-import { appendClasses } from "@/utils/appendClasses";
+import { twMerge } from "tailwind-merge";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -14,9 +14,9 @@ export const Modal: React.FC<ModalProps> = ({ children, className }) => {
       }
     >
       <Card
-        className={appendClasses(
-          className,
+        className={twMerge(
           "flex h-56 w-3/4 items-center justify-center opacity-100 md:w-1/2",
+          className
         )}
       >
         {children}

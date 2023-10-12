@@ -1,4 +1,4 @@
-import { appendClasses } from "@/utils/appendClasses";
+import { twMerge } from "@/utils/twMerge";
 
 export interface CardProps {
   children: React.ReactNode;
@@ -10,10 +10,10 @@ export const Card: React.FC<CardProps> = ({ children, className, href }) => {
   const cardClasses = "flex w-full bg-white rounded-xl";
 
   return href ? (
-    <a className={appendClasses(cardClasses, className)} href={href}>
+    <a className={twMerge(cardClasses, className)} href={href}>
       {children}
     </a>
   ) : (
-    <div className={appendClasses(cardClasses, className)}>{children}</div>
+    <div className={twMerge(cardClasses, className)}>{children}</div>
   );
 };
