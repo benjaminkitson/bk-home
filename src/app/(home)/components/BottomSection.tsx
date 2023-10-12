@@ -25,7 +25,7 @@ const portfolioItems = [
   {
     name: "Wordlnt",
     description: "A clone of wordle!",
-    href: "https://wordlnt.benjaminkitson.com",
+    href: "/wordlnt",
     imgSrc: wordlnt,
     imgAlt: "Wordlnt portfolio image",
   },
@@ -46,7 +46,6 @@ export const BottomSection: React.FC<SectionProps> = ({ scrollRefs }) => {
           <Image
             src={item.imgSrc}
             alt={item.imgAlt}
-            // className="h-full w-56 rounded-l-xl object-fill lg:h-56 lg:w-full lg:rounded-t-xl lg:rounded-bl-none"
             className="w-56 rounded-l-xl lg:h-56 lg:w-full lg:rounded-t-xl lg:rounded-bl-none"
             placeholder="blur"
             quality={1}
