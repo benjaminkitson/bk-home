@@ -52,7 +52,7 @@ export const BottomSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             quality={1}
           />
           <div className="flex w-full flex-col p-2">
-            <H2 className="mb-4 mt-2">{item.name}</H2>
+            <H2 className="my-1 md:mb-4 md:mt-2">{item.name}</H2>
             <P>{item.description}</P>
           </div>
         </Card>
