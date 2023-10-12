@@ -2,10 +2,10 @@ import React from "react";
 import Square from "../Square";
 import { RowType } from "../Content";
 
-type RowProps = {
+interface RowProps {
   row: number;
   squares: RowType;
-};
+}
 
 function Row({ row, squares }: RowProps) {
   return (

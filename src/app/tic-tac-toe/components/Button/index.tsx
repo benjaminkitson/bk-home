@@ -3,13 +3,13 @@ import { twMerge } from "tailwind-merge";
 type ButtonSize = "sm" | "md" | "lg";
 type ButtonColor = "blue" | "gray";
 
-type ButtonProps = {
+interface ButtonProps {
   children?: string;
   onClick?: () => any;
   className?: string;
   buttonColor: ButtonColor;
   buttonSize: ButtonSize;
-};
+}
 
 export const Button = ({
   children,
@@ -20,8 +20,8 @@ export const Button = ({
 }: ButtonProps) => {
   const buttonSizeMap: Record<ButtonSize, string> = {
     sm: "w-20 h-5 text-lg",
-    md: "w-52 h-24 text-xl",
-    lg: "w-60 h-20 text-3xl",
+    md: "w-52 h-20 text-xl",
+    lg: "w-60 h-24 text-3xl",
   };
 
   const buttonColorMap: Record<ButtonColor, string> = {
@@ -34,7 +34,7 @@ export const Button = ({
     buttonSize ? buttonSizeMap[buttonSize] : "",
   ];
 
-  const classes = twMerge(`rounded-lg m-5 ${color} ${size}`, className);
+  const classes = twMerge(`rounded-lg ${color} ${size}`, className);
 
   return (
     <button onClick={onClick} className={classes}>

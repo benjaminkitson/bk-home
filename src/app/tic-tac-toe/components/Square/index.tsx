@@ -4,11 +4,11 @@ import { RxCross1, RxCircle } from "react-icons/rx";
 import { AppContext } from "../AppContext";
 import { BoardType, SquareContent } from "../Content";
 
-type SquareProps = {
+interface SquareProps {
   content: SquareContent;
   row: number;
   col: number;
-};
+}
 
 function Square({ content, row, col }: SquareProps) {
   const { gameOver, crossesTurn, setBoard, board } = useContext(AppContext);
