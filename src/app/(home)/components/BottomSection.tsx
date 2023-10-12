@@ -11,14 +11,14 @@ const portfolioItems = [
   {
     name: "Snek",
     description: "Retro snake game, built only with Vanilla JS, HTML and CSS",
-    href: "https://snek.benjaminkitson.com",
+    href: "/snek",
     imgSrc: snek,
     imgAlt: "Snek portfolio image",
   },
   {
     name: "Tic-Tac-Toe",
     description: "Tic-tac-toe game with built in CPU opponent",
-    href: "https://tic-tac-toe.benjaminkitson.com",
+    href: "/tic-tac-toe",
     imgSrc: tictactoe,
     imgAlt: "Tic-Tac-Toe portfolio image",
   },

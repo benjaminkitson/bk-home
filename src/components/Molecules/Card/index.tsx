@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 
 export interface CardProps {
@@ -10,9 +11,9 @@ export const Card: React.FC<CardProps> = ({ children, className, href }) => {
   const cardClasses = "flex w-full bg-white rounded-xl";
 
   return href ? (
-    <a className={twMerge(cardClasses, className)} href={href}>
+    <Link className={twMerge(cardClasses, className)} href={href}>
       {children}
-    </a>
+    </Link>
   ) : (
     <div className={twMerge(cardClasses, className)}>{children}</div>
   );
