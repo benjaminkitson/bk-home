@@ -7,7 +7,7 @@ describe("Button", () => {
     render(
       <Button buttonColor="blue" buttonSize="lg">
         Test Button
-      </Button>
+      </Button>,
     );
 
     const button = screen.getByText(/Test Button/i);
