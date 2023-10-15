@@ -17,7 +17,7 @@ export const ScrollLink: React.FC<ScrollLinkProps> = ({
   return (
     <a
       className={twMerge(
-        "cursor-pointer text-lg underline underline-offset-4 transition-all duration-200 hover:font-bold",
+        "cursor-pointer whitespace-nowrap text-inherit underline underline-offset-4 transition-all duration-200 hover:font-bold",
         className,
       )}
       onClick={() => {

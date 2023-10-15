@@ -58,7 +58,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               and is hosted on AWS.
             </P>
           </div>
-          <div className="flex h-20 w-full md:hidden">
+          <div className="mt-5 flex h-20 w-full justify-center md:hidden">
             <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
           </div>
           <div className="align-start mt-10 hidden w-full pl-4 lg:flex">
