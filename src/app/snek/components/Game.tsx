@@ -12,6 +12,8 @@ import { Cell } from "../components/Cell";
 import { H1, H2 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
 import { DirectionButton } from "./DirectionButton";
+import { Button } from "@/components/Atoms/Button";
+import Link from "next/link";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 
@@ -81,7 +83,6 @@ export default function Game({
     currentTime: 0,
   };
 
-  // TODO: change actions type
   const snekReducer: Reducer<SnekState, SnekAction> = (
     state: SnekState,
     action: SnekAction,
@@ -233,7 +234,7 @@ export default function Game({
   }, [snekState.gridSize]);
 
   return (
-    <div className="flex h-full flex-col items-center justify-center">
+    <div className="flex h-screen flex-col items-center justify-center">
       <H1 className="mb-6">{snekState.score}</H1>
       {/* 
       Mapping over the grid on every render doesn't seem efficient
@@ -253,37 +254,49 @@ export default function Game({
         </div>
       ))}
 
-      <DirectionButton
-        onClick={() => (direction.current = "UP")}
-        direction="UP"
-        className="mt-10"
-      />
-      <div className="flex items-center justify-center">
-        <DirectionButton
-          onClick={() => (direction.current = "LEFT")}
-          direction="LEFT"
-          className="mr-14"
-        />
-        <DirectionButton
-          onClick={() => (direction.current = "RIGHT")}
-          direction="RIGHT"
-        />
+      <div className="block lg:hidden">
+        <div className="flex items-center justify-center">
+          <DirectionButton
+            onClick={() => (direction.current = "UP")}
+            direction="UP"
+            className="mt-10"
+          />
+        </div>
+        <div className="flex items-center justify-center">
+          <DirectionButton
+            onClick={() => (direction.current = "LEFT")}
+            direction="LEFT"
+            className="mr-14"
+          />
+          <DirectionButton
+            onClick={() => (direction.current = "RIGHT")}
+            direction="RIGHT"
+          />
+        </div>
+        <div className="flex items-center justify-center">
+          <DirectionButton
+            className="mb-24"
+            onClick={() => (direction.current = "DOWN")}
+            direction="DOWN"
+          />
+        </div>
       </div>
-      <DirectionButton
-        className="mb-24"
-        onClick={() => (direction.current = "DOWN")}
-        direction="DOWN"
-      />
 
       {!snekState.isActive && (
         <Modal className="flex flex-col">
           {snekState.isGameOver && <H2 className="mb-4">Game Over</H2>}
-          <button
+          <Button
             onClick={() => dispatch({ type: "START_GAME" })}
-            className={"mb-2 h-10 rounded-full bg-blue-600 px-5"}
+            buttonColor="blue"
+            buttonSize="lg"
           >
             Play!
-          </button>
+          </Button>
+          <Link href="/">
+            <Button buttonColor="gray" buttonSize="sm" className="mt-10">
+              Home
+            </Button>
+          </Link>
         </Modal>
       )}
     </div>

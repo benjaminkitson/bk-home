@@ -1,4 +1,4 @@
-import "../globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <div className="relative z-10 min-h-screen w-screen bg-gradient-to-r from-blue-700 to-cyan-300">
+        <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-cyan-300">
           {children}
         </div>
       </body>

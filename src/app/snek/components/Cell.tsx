@@ -14,7 +14,7 @@ const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
 
   return (
     <div
-      className={`mb-[2px] mr-[2px] h-2 w-2 rounded-sm border border-white ${bg}`}
+      className={`mb-[2px] mr-[2px] h-3 w-3 rounded-sm border border-white ${bg}`}
     ></div>
   );
 };

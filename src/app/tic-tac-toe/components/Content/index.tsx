@@ -1,9 +1,9 @@
 "use client";
 
 import Board from "../Board";
-import Modal from "../Modal";
 import Header from "../Header";
 import { AppContextProvider } from "../AppContext";
+import SelectPlayersModal from "../SelectPlayersModal";
 
 export type GameMode = "SINGLE_PLAYER" | "LOCAL_MULTI_PLAYER";
 
@@ -23,7 +23,7 @@ export const Content = () => {
         <Header />
         <div className="flex w-full grow flex-col items-center justify-start">
           <Board />
-          <Modal />
+          <SelectPlayersModal />
         </div>
       </div>
     </AppContextProvider>

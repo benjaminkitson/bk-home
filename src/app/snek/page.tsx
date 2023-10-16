@@ -43,7 +43,7 @@ export default function Snek() {
     });
 
     return () => {
-      window.removeEventListener("keydown", () => console.log("test"));
+      window.removeEventListener("keydown", () => {});
     };
   }, []);
 

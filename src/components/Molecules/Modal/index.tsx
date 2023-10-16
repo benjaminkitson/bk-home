@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 interface ModalProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export const Modal: React.FC<ModalProps> = ({ children, className }) => {
@@ -15,7 +15,7 @@ export const Modal: React.FC<ModalProps> = ({ children, className }) => {
     >
       <Card
         className={twMerge(
-          "flex h-56 w-3/4 items-center justify-center opacity-100 md:w-1/2",
+          "flex h-96 w-3/4 flex-col items-center justify-center opacity-100 md:w-1/2",
           className,
         )}
       >

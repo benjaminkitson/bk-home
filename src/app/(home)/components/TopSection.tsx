@@ -18,7 +18,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
           <Image
             src={me}
             alt="Benjamin Kitson"
-            className="w-56 rounded-3xl object-cover lg:h-72 lg:w-full"
+            className="w-56 rounded-3xl object-cover lg:h-3/4 lg:w-full"
             quality={50}
             placeholder="blur"
             priority={true}
@@ -43,7 +43,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               love using both my creativity and my analytical skills to build
               apps that deliver real value to users.
             </P>
-            <P className="mb-4">
+            <P className="mb-4 hidden md:block">
               When I&apos;m not working on Penfold&apos;s customer-facing mobile
               app, I&apos;m probably either building some random personal
               project {" ("}

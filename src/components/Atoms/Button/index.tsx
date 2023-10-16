@@ -19,7 +19,7 @@ export const Button = ({
   buttonSize,
 }: ButtonProps) => {
   const buttonSizeMap: Record<ButtonSize, string> = {
-    sm: "w-20 h-5 text-lg",
+    sm: "w-20 h-10 text-lg",
     md: "w-52 h-20 text-xl",
     lg: "w-60 h-24 text-3xl",
   };
