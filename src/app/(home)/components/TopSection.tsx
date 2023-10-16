@@ -2,15 +2,19 @@ import { H1, P } from "@/components/Atoms/Typography";
 import { BsGithub, BsLinkedin, BsChevronDown } from "react-icons/bs";
 import Image from "next/image";
 import me from "../../../me.png";
-import React from "react";
+import React, { useState } from "react";
 import { ScrollLink, ScrollRef } from "@/components/Atoms/ScrollLink";
 import { DownLink } from "./DownLink";
+import { Button } from "@/components/Atoms/Button";
+import { Modal } from "@/components/Molecules/Modal";
 
 export interface SectionProps {
   scrollRefs: Record<string, ScrollRef>;
 }
 
 export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
+  const [m, setM] = useState(false);
+
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="flex w-5/6 flex-col items-center justify-center lg:flex-row">

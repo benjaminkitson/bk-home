@@ -1,5 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { ListItem } from "./ListItem";
+import { PokedexListItem } from "./PokedexListItem";
+
+export type Pokemon = {
+  name: string;
+  ability: string;
+  description: string;
+  evolutionChain: string[];
+  height: number;
+  id: string;
+  mainImageSrc: string;
+  thumbImageSrc: string;
+  types: string[];
+  weight: number;
+};
 
 export const Content = () => {
   const { isLoading, error, data } = useQuery({
@@ -16,9 +29,9 @@ export const Content = () => {
 
   return (
     <>
-      <div className="flex h-full w-full grow flex-col items-center justify-start">
-        {data.map((pokemon) => (
-          <ListItem key={pokemon.name} name={pokemon.name} />
+      <div className="h-full w-full overflow-scroll p-5">
+        {data.map((pokemon: Pokemon) => (
+          <PokedexListItem key={pokemon.name} pokemon={pokemon} />
         ))}
       </div>
       <div className="flex h-full w-full grow flex-col items-center justify-start">
