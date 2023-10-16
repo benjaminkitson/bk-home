@@ -202,8 +202,6 @@ export default function Game({
 
   const [snekState, dispatch] = useReducer(snekReducer, initialState);
 
-  // TODO: Turn all these useStates into one mighty reducer
-
   useEffect(() => {
     if (snekState.isActive) {
       dispatch({ type: "SNAKE_MOVES" });
@@ -257,26 +255,42 @@ export default function Game({
       <div className="block lg:hidden">
         <div className="flex items-center justify-center">
           <DirectionButton
-            onClick={() => (direction.current = "UP")}
+            onClick={() => {
+              if (direction.current != "DOWN") {
+                direction.current = "UP";
+              }
+            }}
             direction="UP"
             className="mt-10"
           />
         </div>
         <div className="flex items-center justify-center">
           <DirectionButton
-            onClick={() => (direction.current = "LEFT")}
+            onClick={() => {
+              if (direction.current != "RIGHT") {
+                direction.current = "LEFT";
+              }
+            }}
             direction="LEFT"
             className="mr-14"
           />
           <DirectionButton
-            onClick={() => (direction.current = "RIGHT")}
+            onClick={() => {
+              if (direction.current != "LEFT") {
+                direction.current = "RIGHT";
+              }
+            }}
             direction="RIGHT"
           />
         </div>
         <div className="flex items-center justify-center">
           <DirectionButton
             className="mb-24"
-            onClick={() => (direction.current = "DOWN")}
+            onClick={() => {
+              if (direction.current != "UP") {
+                direction.current = "DOWN";
+              }
+            }}
             direction="DOWN"
           />
         </div>
