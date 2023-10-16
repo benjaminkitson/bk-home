@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
 
@@ -18,14 +20,17 @@ export const usePokedexQuery = () => {
 
   if (!hasFetched.current) {
     hasFetched.current = true;
-    storedPokemonJSON = localStorage.getItem("pokemon");
+    storedPokemonJSON =
+      typeof localStorage !== "undefined"
+        ? localStorage.getItem("pokemon")
+        : null;
     if (!storedPokemonJSON) {
       refetch();
     }
   }
 
   useEffect(() => {
-    if (data) {
+    if (data && typeof localStorage !== "undefined") {
       localStorage.setItem("pokemon", JSON.stringify(data));
     }
   }, [data]);
