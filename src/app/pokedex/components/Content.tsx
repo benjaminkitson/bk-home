@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { PokedexListItem } from "./PokedexListItem";
+import { usePokedexQuery } from "../hooks/usePokedexQuery";
 
 export type Pokemon = {
   name: string;
@@ -15,11 +16,9 @@ export type Pokemon = {
 };
 
 export const Content = () => {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["pokedex"],
-    queryFn: () =>
-      fetch("https://pokedex.benjaminkitson.com/api").then((res) => res.json()),
-  });
+  const { data, error, isLoading } = usePokedexQuery();
+
+  console.log(isLoading);
 
   if (isLoading) return "Loading...";
 
