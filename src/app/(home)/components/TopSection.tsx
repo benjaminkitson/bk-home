@@ -25,7 +25,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             className="w-56 rounded-3xl object-cover lg:h-3/4 lg:w-full"
             quality={50}
             placeholder="blur"
-            priority={true}
+            priority
           />
           <div className="ml-4 flex flex-col justify-center lg:hidden">
             <a href="https://github.com/benjaminkitson" className="m-6">
