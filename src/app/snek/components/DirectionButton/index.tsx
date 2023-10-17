@@ -6,6 +6,8 @@ import {
 } from "react-icons/bs";
 import { Direction } from "../../page";
 import { twMerge } from "tailwind-merge";
+import { Button } from "@/components/Atoms/Button";
+import { IconType } from "react-icons";
 
 interface DirectionButtonProps {
   onClick: () => void;
@@ -32,14 +34,16 @@ export const DirectionButton: React.FC<DirectionButtonProps> = ({
   className,
 }) => {
   return (
-    <button
+    <Button
       onClick={onClick}
       className={twMerge(
         "flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 font-bold",
         className,
       )}
+      buttonSize="lg"
+      buttonColor="blue"
     >
       {getDirectionIcon(direction)}
-    </button>
+    </Button>
   );
 };

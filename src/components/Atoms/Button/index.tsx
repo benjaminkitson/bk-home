@@ -4,7 +4,7 @@ type ButtonSize = "sm" | "md" | "lg";
 type ButtonColor = "blue" | "gray";
 
 interface ButtonProps {
-  children?: string;
+  children?: React.ReactNode;
   onClick?: () => any;
   className?: string;
   buttonColor: ButtonColor;
