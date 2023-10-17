@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../../../app/tic-tac-toe/components/AppContext";
 
 function Header() {
   const { statusText } = useContext(AppContext);

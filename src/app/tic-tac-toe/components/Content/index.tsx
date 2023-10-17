@@ -1,7 +1,7 @@
 "use client";
 
 import Board from "../Board";
-import Header from "../Header";
+import Header from "../../../../components/Molecules/Header";
 import { AppContextProvider } from "../AppContext";
 import SelectPlayersModal from "../SelectPlayersModal";
 

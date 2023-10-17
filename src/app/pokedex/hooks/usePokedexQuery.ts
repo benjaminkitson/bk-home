@@ -35,6 +35,7 @@ export const usePokedexQuery = () => {
     }
   }, [data]);
 
+  // TODO: Change to state
   const pokemonData = storedPokemonJSON ? JSON.parse(storedPokemonJSON) : data;
 
   const loading = pokemonData ? false : isLoading;
