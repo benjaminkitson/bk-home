@@ -1,6 +1,6 @@
 # benjaminkitson.com
 
-Welcome to my dev portfolio site! Built with Next.JS and hosted on AWS Amplify, the site is both intended to showcase some of the bits and pieces I've made, while also be a playground of sorts for me to independently build out a larger-scal;e Next.JS application.
+Welcome to my dev portfolio site! Built with Next.JS and hosted on AWS Amplify, the site is both intended to showcase some of the bits and pieces I've made, while also be a playground of sorts for me to independently build out a larger-scale Next.JS application.
 
 At the time of writing, it's a bit of a mish-mash of newer-code and older React SPA projects I've hastily shoehorned into Next.JS pages, so on the off chance you're reading this witha view to potentially employing me to do write code, please keep that in mind!
 
