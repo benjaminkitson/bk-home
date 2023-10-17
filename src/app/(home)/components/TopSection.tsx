@@ -1,12 +1,12 @@
 import { H1, P } from "@/components/Atoms/Typography";
-import { BsGithub, BsLinkedin, BsChevronDown } from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsInfoSquareFill } from "react-icons/bs";
+import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import me from "../../../me.png";
 import React, { useState } from "react";
 import { ScrollLink, ScrollRef } from "@/components/Atoms/ScrollLink";
 import { DownLink } from "./DownLink";
-import { Button } from "@/components/Atoms/Button";
-import { Modal } from "@/components/Molecules/Modal";
+import { ExternalLinkIcon } from "./ExternalLinkIcon";
 
 export interface SectionProps {
   scrollRefs: Record<string, ScrollRef>;
@@ -28,15 +28,21 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             priority
           />
           <div className="ml-4 flex flex-col justify-center lg:hidden">
-            <a href="https://github.com/benjaminkitson" className="m-6">
-              <BsGithub className=" fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
-            </a>
-            <a
-              href="https://uk.linkedin.com/in/benjamin-kitson"
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson"
               className="m-6"
-            >
-              <BsLinkedin className="fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
-            </a>
+              Icon={BsGithub}
+            />
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson"
+              className="m-6"
+              Icon={BsLinkedin}
+            />
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson/bk-home"
+              className="m-6"
+              Icon={FaInfoCircle}
+            />
           </div>
         </div>
         <div className="my-10 flex flex-col items-center lg:ml-14">
@@ -66,12 +72,21 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
           </div>
           <div className="align-start mt-10 hidden w-full pl-4 lg:flex">
-            <a href="https://github.com/benjaminkitson" className="mr-6">
-              <BsGithub className=" fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
-            </a>
-            <a href="https://uk.linkedin.com/in/benjamin-kitson">
-              <BsLinkedin className="fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-black" />
-            </a>
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson"
+              className="mr-6"
+              Icon={BsGithub}
+            />
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson"
+              className="mr-6"
+              Icon={BsLinkedin}
+            />
+            <ExternalLinkIcon
+              href="https://github.com/benjaminkitson/bk-home"
+              className="mr-6"
+              Icon={FaInfoCircle}
+            />
           </div>
         </div>
       </div>
