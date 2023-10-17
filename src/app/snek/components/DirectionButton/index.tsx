@@ -7,8 +7,6 @@ import {
 import { Direction } from "../../page";
 import { twMerge } from "tailwind-merge";
 import { Button } from "@/components/Atoms/Button";
-import { IconType } from "react-icons";
-
 interface DirectionButtonProps {
   onClick: () => void;
   direction: Direction;
@@ -18,13 +16,13 @@ interface DirectionButtonProps {
 const getDirectionIcon = (direction: Direction) => {
   switch (direction) {
     case "RIGHT":
-      return <BsChevronRight />;
+      return <BsChevronRight data-testid="direction-icon-right" />;
     case "LEFT":
-      return <BsChevronLeft />;
+      return <BsChevronLeft data-testid="direction-icon-left" />;
     case "UP":
-      return <BsChevronUp />;
+      return <BsChevronUp data-testid="direction-icon-up" />;
     case "DOWN":
-      return <BsChevronDown />;
+      return <BsChevronDown data-testid="direction-icon-down" />;
   }
 };
 
