@@ -7,7 +7,7 @@ interface CellProps {
 
 const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
   const bg = isSnek
-    ? "bg-blue-500"
+    ? "bg-blue-400"
     : isFood
     ? "bg-green-500"
     : "bg-white opacity-30";
