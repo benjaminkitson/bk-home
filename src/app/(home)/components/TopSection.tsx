@@ -1,5 +1,5 @@
 import { H1, P } from "@/components/Atoms/Typography";
-import { BsGithub, BsLinkedin, BsInfoSquareFill } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import me from "../../../me.png";

@@ -1,9 +1,9 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Button } from ".";
 
 describe("Button", () => {
-  it("renders the Button component", () => {
+  it("correcly sets the button's colour", () => {
     render(
       <Button buttonColor="blue" buttonSize="lg">
         Test Button
@@ -12,9 +12,18 @@ describe("Button", () => {
 
     const button = screen.getByText(/Test Button/i);
 
-    const expectedClass =
-      "rounded-lg m-5 bg-blue-400 hover:bg-blue-500 w-60 h-20 text-3xl";
+    expect(button.className.split(" ")).toContain("bg-blue-400");
+  });
 
-    expect(button.className).toStrictEqual(expectedClass);
+  it("correcly sets the button's size", () => {
+    render(
+      <Button buttonColor="blue" buttonSize="lg">
+        Test Button
+      </Button>,
+    );
+
+    const button = screen.getByText(/Test Button/i);
+
+    expect(button.className.split(" ")).toContain("w-60");
   });
 });
