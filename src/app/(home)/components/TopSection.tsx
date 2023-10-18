@@ -34,7 +34,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               Icon={BsGithub}
             />
             <ExternalLinkIcon
-              href="https://github.com/benjaminkitson"
+              href="https://www.linkedin.com/in/benjamin-kitson"
               className="m-6"
               Icon={BsLinkedin}
             />
@@ -78,7 +78,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               Icon={BsGithub}
             />
             <ExternalLinkIcon
-              href="https://github.com/benjaminkitson"
+              href="https://www.linkedin.com/in/benjamin-kitson"
               className="mr-6"
               Icon={BsLinkedin}
             />
