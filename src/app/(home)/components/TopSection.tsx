@@ -13,8 +13,6 @@ export interface SectionProps {
 }
 
 export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
-  const [m, setM] = useState(false);
-
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="flex w-5/6 flex-col items-center justify-center lg:flex-row">
