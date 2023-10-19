@@ -52,9 +52,9 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               apps that deliver real value to users.
             </P>
             <P className="mb-4 hidden md:block">
-              When I&apos;m not working on Penfold&apos;s customer-facing mobile
-              app, I&apos;m probably either building some random personal
-              project {" ("}
+              When I&apos;m not working on either Penfold&apos;s customer-facing
+              mobile app or their serverless Node.JS API, I&apos;m probably
+              either building some random personal project {" ("}
               <ScrollLink scrollRef={scrollRefs.portfolioScrollRef}>
                 see below 👇
               </ScrollLink>
