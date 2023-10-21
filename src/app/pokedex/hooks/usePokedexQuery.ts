@@ -1,14 +1,12 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 
 /**
  * A (currently quite hacky) wrapper around useQuery that stores the pokemon in localstorage if they don't exist
  */
 export const usePokedexQuery = () => {
-  const hasFetched = useRef(false);
-
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["pokedex"],
     queryFn: () =>
@@ -16,29 +14,34 @@ export const usePokedexQuery = () => {
     enabled: false,
   });
 
-  let storedPokemonJSON;
+  // TODO: Change this to actual Pokemon data type
+  const [cacheData, setCacheData] = useState<string | null>(null);
 
-  if (!hasFetched.current) {
-    hasFetched.current = true;
-    storedPokemonJSON =
+  const didTryCache = useRef(false);
+
+  if (!didTryCache.current) {
+    didTryCache.current = true;
+    const cachedData =
       typeof localStorage !== "undefined"
         ? localStorage.getItem("pokemon")
         : null;
-    if (!storedPokemonJSON) {
+
+    if (cachedData) {
+      setCacheData(JSON.parse(cachedData));
+    } else {
+      console.log("No cached data found, fetching from API...");
       refetch();
     }
   }
 
-  useEffect(() => {
-    if (data && typeof localStorage !== "undefined") {
+  if (data && !cacheData) {
+    if (typeof localStorage !== "undefined") {
       localStorage.setItem("pokemon", JSON.stringify(data));
     }
-  }, [data]);
+  }
 
-  // TODO: Change to state
-  const pokemonData = storedPokemonJSON ? JSON.parse(storedPokemonJSON) : data;
+  // const loading = isLoading;
+  const loading = !cacheData && isLoading;
 
-  const loading = pokemonData ? false : isLoading;
-
-  return { data: pokemonData, error, isLoading: loading };
+  return { data: data || cacheData, error, loading };
 };

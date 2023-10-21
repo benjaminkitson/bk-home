@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { PokedexListItem } from "./PokedexListItem";
 import { usePokedexQuery } from "../hooks/usePokedexQuery";
 
@@ -15,16 +14,12 @@ export type Pokemon = {
   weight: number;
 };
 
-export const Content = () => {
-  const { data, error, isLoading } = usePokedexQuery();
+const Content = () => {
+  const { data, error, loading } = usePokedexQuery();
 
-  console.log(isLoading);
+  if (loading) return <h1>Loading...</h1>;
 
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred";
-
-  console.log(data);
+  if (error) return <h1>An error has occurred</h1>;
 
   return (
     <>
@@ -39,3 +34,5 @@ export const Content = () => {
     </>
   );
 };
+
+export default Content;
