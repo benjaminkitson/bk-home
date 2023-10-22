@@ -3,16 +3,12 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import me from "../../../me.png";
-import React, { useState } from "react";
-import { ScrollLink, ScrollRef } from "@/components/Atoms/ScrollLink";
+import React from "react";
 import { DownLink } from "./DownLink";
 import { ExternalLinkIcon } from "./ExternalLinkIcon";
+import { SeeBelow } from "./SeeBelow";
 
-export interface SectionProps {
-  scrollRefs: Record<string, ScrollRef>;
-}
-
-export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
+export const TopSection: React.FC = () => {
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="flex w-5/6 flex-col items-center justify-center lg:flex-row">
@@ -55,9 +51,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
               When I&apos;m not working on either Penfold&apos;s customer-facing
               mobile app or their serverless Node.JS API, I&apos;m probably
               either building some random personal project {" ("}
-              <ScrollLink scrollRef={scrollRefs.portfolioScrollRef}>
-                see below 👇
-              </ScrollLink>
+              <SeeBelow />
               {") "}
               or playing and writing music.{" "}
             </P>
@@ -67,7 +61,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
             </P>
           </div>
           <div className="mt-5 flex h-20 w-full justify-center md:hidden">
-            <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
+            <DownLink />
           </div>
           <div className="align-start mt-10 hidden w-full pl-4 lg:flex">
             <ExternalLinkIcon
@@ -89,7 +83,7 @@ export const TopSection: React.FC<SectionProps> = ({ scrollRefs }) => {
         </div>
       </div>
       <div className="mt-20 hidden h-32 md:flex">
-        <DownLink portfolioScrollRef={scrollRefs.portfolioScrollRef} />
+        <DownLink />
       </div>
     </div>
   );

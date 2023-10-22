@@ -1,11 +1,9 @@
 import { Card } from "@/components/Molecules/Card";
 import Image from "next/image";
-
 import snek from "../../../snek.png";
 import tictactoe from "../../../tictactoe.png";
 import wordlnt from "../../../wordlnt.png";
 import { H2, P } from "@/components/Atoms/Typography";
-import { SectionProps } from "./TopSection";
 
 const portfolioItems = [
   {
@@ -31,12 +29,9 @@ const portfolioItems = [
   },
 ];
 
-export const BottomSection: React.FC<SectionProps> = ({ scrollRefs }) => {
+export const BottomSection: React.FC = () => {
   return (
-    <div
-      ref={scrollRefs.portfolioScrollRef}
-      className="flex h-screen w-full grow flex-col items-center justify-center p-5 lg:flex-row"
-    >
+    <div className="flex h-screen w-full grow flex-col items-center justify-center p-5 lg:flex-row">
       {portfolioItems.map((item) => (
         <Card
           key={item.name}
