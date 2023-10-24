@@ -37,10 +37,6 @@ export default function Game({
   return (
     <div className="flex h-screen flex-col items-center justify-center">
       <H1 className="mb-6">{snekState.score}</H1>
-      {/* 
-      Mapping over the grid on every render doesn't seem efficient
-      I'm pretty sure it's causing performance problems at higher grid sizes 
-      */}
       {grid.map((row, y) => (
         <div className="flex flex-row" key={y}>
           {row.map((cell, x) => {
