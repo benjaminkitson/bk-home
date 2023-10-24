@@ -18,7 +18,7 @@ export const PokedexListItem: React.FC<PokedexListItemProps> = ({
   return (
     <Card
       className={twMerge(
-        "h-28 items-center rounded-xl bg-blue-300/30 px-4",
+        "h-28 items-center justify-center rounded-xl bg-blue-300/30 px-6",
         className,
       )}
       onClick={onClick}
@@ -31,7 +31,7 @@ export const PokedexListItem: React.FC<PokedexListItemProps> = ({
         quality={50}
         priority
       />
-      <P className="ml-7">{`#${pokemon.id}: ${pokemon.name}`}</P>
+      <P className="flex grow justify-center">{`#${pokemon.id}: ${pokemon.name}`}</P>
     </Card>
   );
 };

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -19,6 +20,7 @@ const config: Config = {
       fontFamily: {
         sans: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
+      colors: { ...colors },
     },
   },
 };
