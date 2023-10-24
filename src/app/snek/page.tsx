@@ -9,18 +9,27 @@ export default function Snek() {
 
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
+      // TODO: these are duplicated across in reducer - need to change this
       switch (e.key) {
         case "ArrowUp":
-          direction.current = "UP";
+          if (direction.current != "DOWN") {
+            direction.current = "UP";
+          }
           break;
         case "ArrowDown":
-          direction.current = "DOWN";
+          if (direction.current != "UP") {
+            direction.current = "DOWN";
+          }
           break;
         case "ArrowLeft":
-          direction.current = "LEFT";
+          if (direction.current != "RIGHT") {
+            direction.current = "LEFT";
+          }
           break;
         case "ArrowRight":
-          direction.current = "RIGHT";
+          if (direction.current != "LEFT") {
+            direction.current = "RIGHT";
+          }
           break;
       }
     });
