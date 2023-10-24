@@ -22,7 +22,7 @@ export default function Snek() {
    * Not sure if this is fine as a ref or should be state
    */
   // const [isActive, setIsActive] = useState(false);
-  const direction = useRef("UP");
+  const direction = useRef<Direction>("UP");
 
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
