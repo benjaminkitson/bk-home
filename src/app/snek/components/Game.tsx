@@ -4,11 +4,11 @@ import { MutableRefObject, useMemo } from "react";
 import { Cell } from "../components/Cell";
 import { H1, H2 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
-import { DirectionButton } from "./DirectionButton";
 import { Button } from "@/components/Atoms/Button";
 import Link from "next/link";
 import { useSnek } from "../hooks/useSnek";
 import { Direction } from "../page";
+import { DirectionButtons } from "./DirectionButtons";
 
 export default function Game({
   direction,
@@ -55,49 +55,7 @@ export default function Game({
         </div>
       ))}
 
-      <div className="block lg:hidden">
-        <div className="flex items-center justify-center">
-          <DirectionButton
-            onClick={() => {
-              if (direction.current != "DOWN") {
-                direction.current = "UP";
-              }
-            }}
-            direction="UP"
-            className="mt-10"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <DirectionButton
-            onClick={() => {
-              if (direction.current != "RIGHT") {
-                direction.current = "LEFT";
-              }
-            }}
-            direction="LEFT"
-            className="mr-14"
-          />
-          <DirectionButton
-            onClick={() => {
-              if (direction.current != "LEFT") {
-                direction.current = "RIGHT";
-              }
-            }}
-            direction="RIGHT"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <DirectionButton
-            className="mb-24"
-            onClick={() => {
-              if (direction.current != "UP") {
-                direction.current = "DOWN";
-              }
-            }}
-            direction="DOWN"
-          />
-        </div>
-      </div>
+      <DirectionButtons directionRef={direction} />
 
       {!snekState.isActive && (
         <Modal className="flex flex-col">
