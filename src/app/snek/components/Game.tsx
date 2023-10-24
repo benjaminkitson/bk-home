@@ -7,8 +7,8 @@ import { Modal } from "@/components/Molecules/Modal";
 import { Button } from "@/components/Atoms/Button";
 import Link from "next/link";
 import { useSnek } from "../hooks/useSnek";
-import { Direction } from "../page";
 import { DirectionButtons } from "./DirectionButtons";
+import { Direction } from "../types";
 
 export default function Game({
   direction,

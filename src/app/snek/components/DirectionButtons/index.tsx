@@ -1,6 +1,6 @@
 import { MutableRefObject } from "react";
-import { Direction } from "../../page";
 import { DirectionButton } from "./DirectionButton";
+import { Direction } from "../../types";
 
 export const DirectionButtons = ({
   directionRef,

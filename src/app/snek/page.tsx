@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Game from "./components/Game";
-
-export type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
+import { Direction } from "./types";
 
 export default function Snek() {
   const direction = useRef<Direction>("UP");

@@ -4,9 +4,10 @@ import {
   BsChevronRight,
   BsChevronUp,
 } from "react-icons/bs";
-import { Direction } from "../../../page";
 import { twMerge } from "tailwind-merge";
 import { Button } from "@/components/Atoms/Button";
+import { Direction } from "@/app/snek/types";
+
 interface DirectionButtonProps {
   onClick: () => void;
   direction: Direction;
