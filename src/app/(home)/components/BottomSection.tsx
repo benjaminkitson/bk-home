@@ -43,7 +43,7 @@ export const BottomSection: React.FC = () => {
       {portfolioItems.map((item) => (
         <Card
           key={item.name}
-          className="m-4 h-40 w-full p-0 opacity-90 shadow-sm transition-all duration-500 hover:scale-95  hover:opacity-100 lg:h-96 lg:w-96 lg:flex-col"
+          className="m-4 h-24 w-full p-0 opacity-90 shadow-sm transition-all duration-500 hover:scale-95  hover:opacity-100 lg:h-96 lg:w-96 lg:flex-col"
           href={item.href}
         >
           <Image
