@@ -16,7 +16,7 @@ const bgTypeColors: Record<PokemonType, string> = {
   Fairy: "bg-pink-300",
   Fighting: "bg-orange-600",
   Psychic: "bg-pink-500",
-  Rock: "bg-gray-700",
+  Rock: "bg-gray-400",
   Steel: "bg-gray-300",
   Ice: "bg-blue-200",
   Ghost: "bg-indigo-700",
@@ -32,10 +32,11 @@ interface TypeItemProps {
 }
 
 export const TypeItem: React.FC<TypeItemProps> = ({ type, className }) => {
+  console.log(type);
   return (
     <div
       className={twMerge(
-        `${bgTypeColors[type]} bg- rounded-md border border-gray-400/50 px-2 py-1`,
+        `${bgTypeColors[type]} flex w-20 items-center justify-center rounded-md border border-gray-400/50 px-2 py-1`,
         className,
       )}
     >

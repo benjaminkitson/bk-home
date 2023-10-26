@@ -18,7 +18,7 @@ export const PokedexListItem: React.FC<PokedexListItemProps> = ({
   return (
     <Card
       className={twMerge(
-        "h-28 items-center justify-center rounded-xl bg-blue-300/30 px-6",
+        "h-28 items-center justify-center rounded-xl bg-blue-300/30 px-6 transition-all hover:bg-blue-300/50",
         className,
       )}
       onClick={onClick}

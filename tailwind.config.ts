@@ -20,7 +20,9 @@ const config: Config = {
       fontFamily: {
         sans: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
-      colors: { ...colors },
+      colors: {
+        ...colors,
+      },
     },
   },
 };

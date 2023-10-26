@@ -54,7 +54,7 @@ export default function Game({
       <DirectionButtons directionRef={direction} />
 
       {!snekState.isActive && (
-        <Modal className="flex flex-col">
+        <Modal cardClassName="flex flex-col">
           {snekState.isGameOver && <H2 className="mb-4">Game Over</H2>}
           <Button
             onClick={() => dispatch({ type: "START_GAME" })}
