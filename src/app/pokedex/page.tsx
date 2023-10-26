@@ -1,23 +1,26 @@
-"use client";
+import Content from "./components/Content";
 
-import dynamic from "next/dynamic";
+const getPokemon = async () => {
+  const pokemon = await fetch("https://pokedex.benjaminkitson.com/api").then(
+    (res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      return res.json();
+    },
+  );
 
-// Because NextJS SSR can't "see" localStorage, a mismatch between client and server arises - just treat the pokedex as a client side page
-// TODO: investigate just SSR-ing the enitre page since it's basically static anyway
-const Content = dynamic(() => import("./components/Content"), {
-  ssr: false,
-});
+  return pokemon;
+};
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+export default async function Pokedex() {
+  const pokemon = await getPokemon();
 
-const queryClient = new QueryClient();
+  console.log(pokemon);
 
-export default function Pokedex() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="bg-green flex h-screen w-screen items-center justify-center">
-        <Content />
-      </div>
-    </QueryClientProvider>
+    <div className="bg-green flex h-screen w-screen items-center justify-center">
+      <Content pokemon={pokemon} />
+    </div>
   );
 }

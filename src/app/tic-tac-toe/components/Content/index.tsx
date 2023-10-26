@@ -3,7 +3,7 @@
 import Board from "../Board";
 import Header from "../../../../components/Molecules/Header";
 import { AppContextProvider } from "../AppContext";
-import SelectPlayersModal from "../SelectPlayersModal";
+import { SelectPlayersModal } from "../SelectPlayersModal";
 
 export type GameMode = "SINGLE_PLAYER" | "LOCAL_MULTI_PLAYER";
 

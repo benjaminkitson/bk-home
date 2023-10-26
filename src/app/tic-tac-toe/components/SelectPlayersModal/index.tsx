@@ -31,15 +31,11 @@ const SelectPlayersButton: React.FC<SelectPlayersButton> = ({
   );
 };
 
-function SelectPlayersModal() {
+export const SelectPlayersModal = () => {
   const { gameMode } = useContext(AppContext);
 
-  if (gameMode) {
-    return null;
-  }
-
   return (
-    <Modal>
+    <Modal isOpen={!gameMode}>
       <h1 className="mb-10 text-center text-3xl md:mb-0">
         Select number of players:
       </h1>
@@ -49,6 +45,4 @@ function SelectPlayersModal() {
       </div>
     </Modal>
   );
-}
-
-export default SelectPlayersModal;
+};

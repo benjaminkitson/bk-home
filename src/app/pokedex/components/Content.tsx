@@ -1,28 +1,27 @@
+"use client";
+
 import { PokedexListItem } from "./PokedexListItem";
-import { usePokedexQuery } from "../hooks/usePokedexQuery";
 import { PokemonInfo } from "./PokemonInfo";
 import { Pokemon } from "../types";
 import { useState } from "react";
 import { Modal } from "@/components/Molecules/Modal";
 import { Card } from "@/components/Molecules/Card";
 
-const Content = () => {
-  const { data, error, loading } = usePokedexQuery();
+interface ContentProps {
+  pokemon: Pokemon[];
+}
 
+const Content: React.FC<ContentProps> = ({ pokemon }) => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon>();
-
-  if (loading) return <h1>Loading...</h1>;
-
-  if (error) return <h1>An error has occurred</h1>;
 
   const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[700px] w-full flex-col items-center transition-all ${
     currentPokemon ? "bg-blue-300" : "bg-blue-300/50"
   }`;
 
   return (
-    <div className="flex h-full items-center lg:w-3/4">
-      <div className="no-scrollbar h-full w-1/4 grow overflow-x-hidden overflow-y-scroll px-4 py-28">
-        {data.map((pokemon: Pokemon, index: number) => (
+    <div className="flex h-full w-full items-center lg:w-3/4">
+      <div className="no-scrollbar h-full w-full grow overflow-x-hidden overflow-y-scroll px-4 py-4 md:w-1/4 lg:py-28">
+        {pokemon.map((pokemon: Pokemon, index: number) => (
           <PokedexListItem
             key={pokemon.name}
             pokemon={pokemon}
@@ -36,11 +35,14 @@ const Content = () => {
           <PokemonInfo pokemon={currentPokemon} />
         </Card>
       </div>
-      {currentPokemon && (
-        <Modal className="md:hidden" cardClassName={pokemonInfoCardClassName}>
-          <PokemonInfo pokemon={currentPokemon} />
-        </Modal>
-      )}
+      <Modal
+        cardClassName={pokemonInfoCardClassName}
+        isOpen={!!currentPokemon}
+        handleClose={() => setCurrentPokemon(undefined)}
+        isMobileOnly
+      >
+        <PokemonInfo pokemon={currentPokemon} />
+      </Modal>
     </div>
   );
 };

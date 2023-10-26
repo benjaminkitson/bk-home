@@ -53,23 +53,21 @@ export default function Game({
 
       <DirectionButtons directionRef={direction} />
 
-      {!snekState.isActive && (
-        <Modal cardClassName="flex flex-col">
-          {snekState.isGameOver && <H2 className="mb-4">Game Over</H2>}
-          <Button
-            onClick={() => dispatch({ type: "START_GAME" })}
-            buttonColor="blue"
-            buttonSize="lg"
-          >
-            Play!
+      <Modal cardClassName="flex flex-col" isOpen={!snekState.isActive}>
+        {snekState.isGameOver && <H2 className="mb-4">Game Over</H2>}
+        <Button
+          onClick={() => dispatch({ type: "START_GAME" })}
+          buttonColor="blue"
+          buttonSize="lg"
+        >
+          Play!
+        </Button>
+        <Link href="/">
+          <Button buttonColor="gray" buttonSize="sm" className="mt-10">
+            Home
           </Button>
-          <Link href="/">
-            <Button buttonColor="gray" buttonSize="sm" className="mt-10">
-              Home
-            </Button>
-          </Link>
-        </Modal>
-      )}
+        </Link>
+      </Modal>
     </div>
   );
 }

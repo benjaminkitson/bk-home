@@ -1,24 +1,40 @@
 import { Card } from "../Card";
 import { twMerge } from "tailwind-merge";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface ModalProps {
   children: React.ReactNode;
   className?: string;
   cardClassName?: string;
+  isOpen: boolean;
+  handleClose?: () => void;
+  isMobileOnly?: boolean;
 }
 
 export const Modal: React.FC<ModalProps> = ({
   children,
   className,
   cardClassName,
+  isOpen,
+  handleClose,
+  isMobileOnly = false,
 }) => {
+  const openClasses = isMobileOnly ? "md:hidden flex" : "flex";
+
   return (
     <div
       className={twMerge(
+        "absolute left-0 top-0 z-50 h-screen w-screen items-center justify-center bg-gray-300/60 px-10",
         className,
-        "absolute left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-gray-300/60 px-10",
+        `${isOpen ? openClasses : "hidden"}`,
       )}
     >
+      {handleClose && (
+        <AiOutlineClose
+          className="absolute right-5 top-5 cursor-pointer text-3xl"
+          onClick={handleClose}
+        />
+      )}
       <Card
         className={twMerge(
           "flex h-96 w-3/4 flex-col items-center justify-center opacity-100 md:w-1/2",
