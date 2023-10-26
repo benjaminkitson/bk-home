@@ -16,8 +16,6 @@ const getPokemon = async () => {
 export default async function Pokedex() {
   const pokemon = await getPokemon();
 
-  console.log(pokemon);
-
   return (
     <div className="bg-green flex h-screen w-screen items-center justify-center">
       <Content pokemon={pokemon} />

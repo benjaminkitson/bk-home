@@ -3,6 +3,7 @@ import Image from "next/image";
 import snek from "../../../snek.png";
 import tictactoe from "../../../tictactoe.png";
 import wordlnt from "../../../wordlnt.png";
+import pokedex from "../../../pokedex.png";
 import { H2, P } from "@/components/Atoms/Typography";
 
 const portfolioItems = [
@@ -26,6 +27,13 @@ const portfolioItems = [
     href: "/wordlnt",
     imgSrc: wordlnt,
     imgAlt: "Wordlnt portfolio image",
+  },
+  {
+    name: "Pokédex",
+    description: "A pokédex web app",
+    href: "/pokedex",
+    imgSrc: pokedex,
+    imgAlt: "Pokédex portfolio image",
   },
 ];
 
