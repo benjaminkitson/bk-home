@@ -39,7 +39,7 @@ const portfolioItems = [
 
 export const BottomSection: React.FC = () => {
   return (
-    <div className="flex h-screen w-full grow flex-col items-center justify-center p-5 lg:flex-row">
+    <div className="flex h-screen w-full grow flex-col items-center justify-center p-5 pt-32 md:pt-0 lg:flex-row">
       {portfolioItems.map((item) => (
         <Card
           key={item.name}
