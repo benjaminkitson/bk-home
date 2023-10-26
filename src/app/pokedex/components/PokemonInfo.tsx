@@ -26,7 +26,7 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
     <div
       className={`flex h-full w-full flex-col items-center justify-center p-5`}
     >
-      <Card className="relative h-[450px] w-full border border-gray-400/50 bg-blue-400/50">
+      <Card className="relative h-[350px] w-full border border-gray-400/50 bg-blue-400/50">
         {/* <div
             className={`absolute z-20 flex h-full w-full items-center justify-center ${
               isLoading ? "opacity-100" : "opacity-0"

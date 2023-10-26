@@ -8,12 +8,14 @@ interface PokedexListItemProps {
   pokemon: Pokemon;
   className?: string;
   onClick: () => unknown;
+  prioritiseImage: boolean;
 }
 
 export const PokedexListItem: React.FC<PokedexListItemProps> = ({
   pokemon,
   className,
   onClick,
+  prioritiseImage,
 }) => {
   return (
     <Card
@@ -29,7 +31,7 @@ export const PokedexListItem: React.FC<PokedexListItemProps> = ({
         src={pokemon.thumbImageSrc}
         alt={pokemon.name}
         quality={50}
-        priority
+        priority={prioritiseImage}
       />
       <P className="flex grow justify-center">{`#${pokemon.id}: ${pokemon.name}`}</P>
     </Card>

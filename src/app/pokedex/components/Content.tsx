@@ -14,7 +14,7 @@ interface ContentProps {
 const Content: React.FC<ContentProps> = ({ pokemon }) => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon>();
 
-  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[700px] w-full flex-col items-center transition-all ${
+  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center transition-all ${
     currentPokemon ? "bg-blue-300" : "bg-blue-300/50"
   }`;
 
@@ -27,6 +27,7 @@ const Content: React.FC<ContentProps> = ({ pokemon }) => {
             pokemon={pokemon}
             className={`${index === 0 ? "" : "mt-3"} cursor-pointer`}
             onClick={() => setCurrentPokemon(pokemon)}
+            prioritiseImage={index < 20}
           />
         ))}
       </div>
