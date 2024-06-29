@@ -1,6 +1,6 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import "./globals.css";
 
 const roboto = Roboto({
   weight: "400",
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-cyan-300">
+        <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-sky-500">
           {children}
         </div>
       </body>

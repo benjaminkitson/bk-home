@@ -1,14 +1,15 @@
 "use client";
 
-import { MutableRefObject, useMemo } from "react";
-import { Cell } from "../components/Cell";
-import { H1, H2 } from "@/components/Atoms/Typography";
-import { Modal } from "@/components/Molecules/Modal";
+import { useIsAuthenticated } from "@/app/utils/auth";
 import { Button } from "@/components/Atoms/Button";
-import Link from "next/link";
+import { H1 } from "@/components/Atoms/Typography";
+import { Modal } from "@/components/Molecules/Modal";
+import { MutableRefObject, useMemo, useState } from "react";
+import { Cell } from "../components/Cell";
 import { useSnek } from "../hooks/useSnek";
-import { DirectionButtons } from "./DirectionButtons";
 import { Direction } from "../types";
+import { AuthModalContent } from "./AuthModalContent";
+import { DirectionButtons } from "./DirectionButtons";
 
 export default function Game({
   direction,
@@ -16,6 +17,11 @@ export default function Game({
   direction: MutableRefObject<Direction>;
 }) {
   const [snekState, dispatch] = useSnek({ directionRef: direction });
+
+  const isAuthenticated = useIsAuthenticated();
+
+  const [isAuth, setIsAuth] = useState<Boolean>(false);
+  const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up
@@ -33,6 +39,8 @@ export default function Game({
 
     return grid;
   }, [snekState.gridSize]);
+
+  // const { mutate, status, data, error, isLoading } = useAuth();
 
   return (
     <div className="flex h-screen flex-col items-center justify-center">
@@ -53,20 +61,61 @@ export default function Game({
 
       <DirectionButtons directionRef={direction} />
 
-      <Modal cardClassName="flex flex-col" isOpen={!snekState.isActive}>
-        {snekState.isGameOver && <H2 className="mb-4">Game Over</H2>}
-        <Button
-          onClick={() => dispatch({ type: "START_GAME" })}
-          buttonColor="blue"
-          buttonSize="lg"
-        >
-          Play!
-        </Button>
-        <Link href="/">
-          <Button buttonColor="gray" buttonSize="sm" className="mt-10">
-            Home
-          </Button>
-        </Link>
+      <Modal
+        cardClassName="flex flex-col h-1/2 py-16"
+        isOpen={!snekState.isActive}
+      >
+        {isAuth ? (
+          <>
+            <AuthModalContent isInitiallySigningUp={isInitiallySigningUp} />
+            <Button
+              buttonColor="blue"
+              buttonSize="sm"
+              className="mt-5 w-44"
+              onClick={() => setIsAuth(false)}
+            >
+              Continue as Guest
+            </Button>
+          </>
+        ) : (
+          <>
+            {snekState.isGameOver && <H1 className="my-10">Game Over</H1>}
+            <Button
+              onClick={() => dispatch({ type: "START_GAME" })}
+              buttonColor="blue"
+              buttonSize="lg"
+              className="h-32"
+            >
+              Play!
+            </Button>
+            {!isAuthenticated && (
+              <div className="flex w-3/4 justify-center">
+                <Button
+                  buttonColor="gray"
+                  buttonSize="sm"
+                  className="mr-4 mt-10"
+                  onClick={() => {
+                    setisInitiallySigningUp(false);
+                    setIsAuth(true);
+                  }}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  buttonColor="gray"
+                  buttonSize="sm"
+                  className="mt-10"
+                  onClick={() => {
+                    setisInitiallySigningUp(true);
+                    setIsAuth(true);
+                  }}
+                >
+                  Sign Up
+                </Button>
+              </div>
+            )}
+          </>
+        )}
       </Modal>
     </div>
   );

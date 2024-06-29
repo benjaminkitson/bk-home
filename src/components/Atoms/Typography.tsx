@@ -18,5 +18,5 @@ export const H2: React.FC<TypographyProps> = ({ children, className }) => {
 };
 
 export const P: React.FC<TypographyProps> = ({ children, className }) => {
-  return <p className={twMerge("text-sm md:text-lg", className)}>{children}</p>;
+  return <p className={twMerge("text-sm md:text-xl", className)}>{children}</p>;
 };

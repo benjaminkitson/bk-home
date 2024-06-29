@@ -1,9 +1,9 @@
 import { H1, P } from "@/components/Atoms/Typography";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
-import me from "../../../me.png";
 import React from "react";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { FaCode, FaInfoCircle } from "react-icons/fa";
+import me from "../../../me.png";
 import { DownLink } from "./DownLink";
 import { ExternalLinkIcon } from "./ExternalLinkIcon";
 import { SeeBelow } from "./SeeBelow";
@@ -48,16 +48,19 @@ export const TopSection: React.FC = () => {
               apps that deliver real value to users.
             </P>
             <P className="mb-4 hidden md:block">
-              When I&apos;m not working on either Penfold&apos;s customer-facing
-              mobile app or their serverless Node.JS API, I&apos;m probably
-              either building some random personal project {" ("}
+              When I&apos;m not squashing bugs in Aviva Zero&apos;s distributed
+              Go backend or building internal tooling for their engineering
+              department, I&apos;m probably either building some random personal
+              project {" ("}
               <SeeBelow />
               {") "}
               or playing and writing music.{" "}
             </P>
             <P>
               This site has been lovingly crafted using TypeScript and NextJS,
-              and is hosted on AWS.
+              and is hosted on AWS. The various APIs associated with the
+              different projects are built with various different technologies,
+              all also hosted on AWS.
             </P>
           </div>
           <div className="mt-5 flex h-20 w-full justify-center md:hidden">
@@ -77,7 +80,7 @@ export const TopSection: React.FC = () => {
             <ExternalLinkIcon
               href="https://github.com/benjaminkitson/bk-home"
               className="mr-6"
-              Icon={FaInfoCircle}
+              Icon={FaCode}
             />
           </div>
         </div>

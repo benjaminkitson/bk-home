@@ -1,8 +1,8 @@
 "use client";
 
-import Board from "../Board";
-import Header from "../../../../components/Molecules/Header";
+import { Header } from "../../../../components/Molecules/Header";
 import { AppContextProvider } from "../AppContext";
+import Board from "../Board";
 import { SelectPlayersModal } from "../SelectPlayersModal";
 
 export type GameMode = "SINGLE_PLAYER" | "LOCAL_MULTI_PLAYER";
@@ -19,12 +19,10 @@ export type BoardType = [RowType, RowType, RowType];
 export const Content = () => {
   return (
     <AppContextProvider>
-      <div className="relative flex h-screen w-screen flex-col items-center justify-center">
-        <Header />
-        <div className="flex w-full grow flex-col items-center justify-start">
-          <Board />
-          <SelectPlayersModal />
-        </div>
+      <Header title="Tic-Tac-Toe!" />
+      <div className="relative flex w-full grow flex-col items-center justify-start pt-40">
+        <Board />
+        <SelectPlayersModal />
       </div>
     </AppContextProvider>
   );

@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import Row from "../Row";
-import { AppContext } from "../AppContext";
+import { useContext } from "react";
 import { Button } from "../../../../components/Atoms/Button";
-import Link from "next/link";
+import { AppContext } from "../AppContext";
+import Row from "../Row";
 
 function Board() {
   const { board, resetGame } = useContext(AppContext);
@@ -22,11 +21,6 @@ function Board() {
       >
         Reset
       </Button>
-      <Link href="/">
-        <Button buttonColor="gray" buttonSize="sm">
-          Home
-        </Button>
-      </Link>
     </>
   );
 }

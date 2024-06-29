@@ -1,3 +1,4 @@
+import { Header } from "@/components/Molecules/Header";
 import Content from "./components/Content";
 
 const getPokemon = async () => {
@@ -17,7 +18,8 @@ export default async function Pokedex() {
   const pokemon = await getPokemon();
 
   return (
-    <div className="bg-green flex h-screen w-screen items-center justify-center">
+    <div className="flex h-screen w-screen flex-col items-center justify-center">
+      <Header title="Pokedex" />
       <Content pokemon={pokemon} />
     </div>
   );

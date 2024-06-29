@@ -1,8 +1,8 @@
-import React, { ReactNode, useContext } from "react";
+import { Modal } from "@/components/Molecules/Modal";
+import React, { useContext } from "react";
+import { Button } from "../../../../components/Atoms/Button";
 import { AppContext } from "../AppContext";
 import { GameMode } from "../Content";
-import { Button } from "../../../../components/Atoms/Button";
-import { Modal } from "@/components/Molecules/Modal";
 
 interface SelectPlayersButton {
   gameMode: GameMode;
@@ -40,8 +40,8 @@ export const SelectPlayersModal = () => {
         Select number of players:
       </h1>
       <div className="flex h-1/2 w-full flex-col items-center justify-center p-2 md:flex-row">
-        <SelectPlayersButton className="m-2" gameMode={"SINGLE_PLAYER"} />
-        <SelectPlayersButton className="m-2" gameMode={"LOCAL_MULTI_PLAYER"} />
+        <SelectPlayersButton className="m-2" gameMode="SINGLE_PLAYER" />
+        <SelectPlayersButton className="m-2" gameMode="LOCAL_MULTI_PLAYER" />
       </div>
     </Modal>
   );

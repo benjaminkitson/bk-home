@@ -1,11 +1,9 @@
-import { Card } from "@/components/Molecules/Card";
-import { Pokemon } from "../types";
-import Image from "next/image";
 import { H1, H2, P } from "@/components/Atoms/Typography";
+import { Card } from "@/components/Molecules/Card";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { TbPokeball } from "react-icons/tb";
+import { Pokemon } from "../types";
 import { TypeItem } from "./TypeItem";
-import { TypeFlags } from "typescript";
 
 interface PokemonInfoProps {
   pokemon?: Pokemon;
@@ -43,7 +41,9 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
           src={pokemon.mainImageSrc}
           fill={true}
           priority
-          onLoad={() => setIsLoading(false)}
+          onLoad={() => {
+            setIsLoading(false);
+          }}
           objectFit="contain"
         />
       </Card>

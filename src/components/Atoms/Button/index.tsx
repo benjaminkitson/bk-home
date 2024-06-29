@@ -19,9 +19,9 @@ export const Button = ({
   buttonSize,
 }: ButtonProps) => {
   const buttonSizeMap: Record<ButtonSize, string> = {
-    sm: "w-20 h-10 text-lg",
-    md: "w-52 h-20 text-xl",
-    lg: "w-60 h-24 text-3xl",
+    sm: "w-20 h-10 text-lg rounded-md",
+    md: "w-52 h-14 text-xl rounded-lg",
+    lg: "w-60 h-18 text-3xl rounded-xl",
   };
 
   const buttonColorMap: Record<ButtonColor, string> = {
@@ -34,7 +34,7 @@ export const Button = ({
     buttonSize ? buttonSizeMap[buttonSize] : "",
   ];
 
-  const classes = twMerge(`rounded-lg ${color} ${size}`, className);
+  const classes = twMerge(`${color} ${size}`, className);
 
   return (
     <button onClick={onClick} className={classes}>

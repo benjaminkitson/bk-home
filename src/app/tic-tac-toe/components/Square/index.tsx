@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { RxCross1, RxCircle } from "react-icons/rx";
+import { useContext } from "react";
+import { RxCircle, RxCross1 } from "react-icons/rx";
 
 import { AppContext } from "../AppContext";
 import { BoardType, SquareContent } from "../Content";
@@ -33,7 +33,7 @@ function Square({ content, row, col }: SquareProps) {
     <div
       className={`flex items-center justify-center text-6xl md:text-8xl ${
         gameOver || content ? "" : "hover:cursor-pointer hover:bg-blue-300"
-      } square h-20 w-20  rounded-xl border border-gray-400 bg-blue-100 md:h-36 md:w-36`}
+      } square h-28 w-28  rounded-xl border border-gray-400 bg-blue-100 md:h-44 md:w-44 lg:h-52 lg:w-52`}
       onClick={() => markSquare(row, col)}
       data-testid={`${row}-${col}`}
       // gameOver={gameOver}
@@ -41,7 +41,11 @@ function Square({ content, row, col }: SquareProps) {
       {
         // TODO: This is dumb and needs to change
       }
-      {content === "X" ? <RxCross1 /> : content === "O" ? <RxCircle /> : null}
+      {content === "X" ? (
+        <RxCross1 className="text-7xl md:text-9xl" />
+      ) : content === "O" ? (
+        <RxCircle className="text-7xl md:text-9xl" />
+      ) : null}
     </div>
   );
 }

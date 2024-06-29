@@ -1,20 +1,26 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../../app/tic-tac-toe/components/AppContext";
+import { H1 } from "@/components/Atoms/Typography";
+import Link from "next/link";
+import { TiHome } from "react-icons/ti";
 
-function Header() {
-  const { statusText } = useContext(AppContext);
-
-  return (
-    <div className="relative my-10 flex w-full flex-col items-center justify-center">
-      <h1 className="mb-5 text-4xl">Tic-Tac-Toe!</h1>
-      <div className="flex flex-col items-center justify-center">
-        {
-          // TODO: change this statusText thing
-        }
-        <h1 className="text-2xl">{statusText()}</h1>
-      </div>
-    </div>
-  );
+interface HeaderProps {
+  title: string;
 }
 
-export default Header;
+export const Header: React.FC<HeaderProps> = ({ title }) => {
+  return (
+    <div className="absolute left-0 top-0 z-50 flex h-24 min-h-fit w-full items-center justify-between border-b-2 border-blue-400 bg-blue-300 drop-shadow-xl">
+      <div className="bg-red-60 flex h-full w-32 items-center justify-center">
+        <Link href="/" target={undefined}>
+          <TiHome
+            className={
+              "fill-gray-100 text-5xl transition duration-500 hover:scale-90 hover:fill-sky-800"
+            }
+            data-testid="icon-link-icon"
+          />
+        </Link>
+      </div>
+      <H1 className="mb-0 text-3xl md:text-5xl">{title}</H1>
+      <div className="h-full w-32"></div>
+    </div>
+  );
+};

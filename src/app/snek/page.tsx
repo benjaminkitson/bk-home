@@ -1,11 +1,15 @@
 "use client";
 
+import { Header } from "@/components/Molecules/Header";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
 import Game from "./components/Game";
 import { Direction } from "./types";
 
 export default function Snek() {
   const direction = useRef<Direction>("UP");
+
+  const queryClient = new QueryClient();
 
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
@@ -39,5 +43,10 @@ export default function Snek() {
     };
   }, []);
 
-  return <Game direction={direction} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Header title="snek" />
+      <Game direction={direction} />
+    </QueryClientProvider>
+  );
 }
