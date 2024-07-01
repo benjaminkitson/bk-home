@@ -11,25 +11,24 @@ const isJwtPayload = (data: any): data is JwtPayload => {
   return !!data.exp;
 };
 
+export const checkToken = () => {
+  const token = localStorage.getItem("bkToken");
+  console.log("test");
+  if (!token) {
+    return false;
+  }
+  const data = decode(token);
+  if (isJwtPayload(data) && data.exp && data.exp <= Date.now()) {
+    return true;
+  }
+  localStorage.removeItem("bkToken");
+  return false;
+};
+
 export const useIsAuthenticated = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("bkToken");
-    console.log("test");
-    if (!token) {
-      setIsAuthenticated(false);
-      return;
-    }
-    const data = decode(token);
-    if (isJwtPayload(data) && data.exp && data.exp <= Date.now()) {
-      setIsAuthenticated(true);
-      return;
-    }
-    localStorage.removeItem("bkToken");
-    setIsAuthenticated(false);
-    return;
-  }, []);
+  useEffect(() => {}, []);
 
   return isAuthenticated;
 };

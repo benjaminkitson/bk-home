@@ -1,10 +1,10 @@
 "use client";
 
-import { useIsAuthenticated } from "@/app/utils/auth";
+import { checkToken } from "@/app/utils/auth";
 import { Button } from "@/components/Atoms/Button";
 import { H1 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
-import { MutableRefObject, useMemo, useState } from "react";
+import { MutableRefObject, useEffect, useMemo, useState } from "react";
 import { Cell } from "../components/Cell";
 import { useSnek } from "../hooks/useSnek";
 import { Direction } from "../types";
@@ -18,10 +18,14 @@ export default function Game({
 }) {
   const [snekState, dispatch] = useSnek({ directionRef: direction });
 
-  const isAuthenticated = useIsAuthenticated();
-
   const [isAuth, setIsAuth] = useState<Boolean>(false);
   const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const isValid = checkToken();
+    setIsAuthenticated(isValid);
+  }, [isAuth]);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up
@@ -67,7 +71,10 @@ export default function Game({
       >
         {isAuth ? (
           <>
-            <AuthModalContent isInitiallySigningUp={isInitiallySigningUp} />
+            <AuthModalContent
+              isInitiallySigningUp={isInitiallySigningUp}
+              exitAuth={() => setIsAuth(false)}
+            />
             <Button
               buttonColor="blue"
               buttonSize="sm"
@@ -84,7 +91,7 @@ export default function Game({
               onClick={() => dispatch({ type: "START_GAME" })}
               buttonColor="blue"
               buttonSize="lg"
-              className="h-32"
+              className="h-32 w-52"
             >
               Play!
             </Button>

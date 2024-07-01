@@ -19,9 +19,9 @@ export const Button = ({
   buttonSize,
 }: ButtonProps) => {
   const buttonSizeMap: Record<ButtonSize, string> = {
-    sm: "w-20 h-10 text-lg rounded-md",
-    md: "w-52 h-14 text-xl rounded-lg",
-    lg: "w-60 h-18 text-3xl rounded-xl",
+    sm: "min-w-20 px-2 w-fit h-10 text-lg rounded-md",
+    md: "min-w-52 px-4 w-fit h-14 text-xl rounded-lg",
+    lg: "min-w-60 px-6 w-fit h-18 text-3xl rounded-xl",
   };
 
   const buttonColorMap: Record<ButtonColor, string> = {
