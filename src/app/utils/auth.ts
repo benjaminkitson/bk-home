@@ -1,19 +1,16 @@
 // Error handling?
 
 import { JwtPayload, decode } from "jsonwebtoken";
-import { useEffect, useState } from "react";
 
 export const setAuthToken = (token: string) => {
-  localStorage.setItem("bkToken", token);
+  document.cookie = `bkAuth=${token}`;
 };
 
 const isJwtPayload = (data: any): data is JwtPayload => {
   return !!data.exp;
 };
 
-export const checkToken = () => {
-  const token = localStorage.getItem("bkToken");
-  console.log("test");
+export const checkToken = (token?: string) => {
   if (!token) {
     return false;
   }
@@ -21,14 +18,11 @@ export const checkToken = () => {
   if (isJwtPayload(data) && data.exp && data.exp <= Date.now()) {
     return true;
   }
-  localStorage.removeItem("bkToken");
+  document.cookie = "bkAuth=";
   return false;
 };
 
-export const useIsAuthenticated = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {}, []);
-
-  return isAuthenticated;
+export const checkClientToken = () => {
+  const token = document.cookie.split("=")[1];
+  return checkToken(token);
 };

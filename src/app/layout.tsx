@@ -1,6 +1,14 @@
+import { AuthContextProvider } from "@/AuthContext";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+
+import { cookies } from "next/headers";
+
+async function getToken() {
+  const token = cookies().get("bkAuth")?.value;
+  return token;
+}
 
 const roboto = Roboto({
   weight: "400",
@@ -13,17 +21,21 @@ export const metadata: Metadata = {
   description: "Benjamin Kitson developer site",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const token = await getToken();
+
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-sky-500">
-          {children}
-        </div>
+        <AuthContextProvider token={token}>
+          <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-sky-500">
+            {children}
+          </div>
+        </AuthContextProvider>
       </body>
     </html>
   );

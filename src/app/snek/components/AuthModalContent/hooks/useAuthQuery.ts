@@ -9,7 +9,7 @@ export const useAuthQuery = (endpoint: string) => {
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const { mutateAsync } = useMutation({
+  const { mutateAsync, isLoading } = useMutation({
     mutationFn: (data: AuthQueryInput) => {
       try {
         return fetch(endpoint, {
@@ -33,6 +33,7 @@ export const useAuthQuery = (endpoint: string) => {
       res = await mutateAsync(data);
       const resData = await res.json();
       setMessage(resData.message);
+      // TODO: Move this token stuff outside the hook
       if (resData.token) {
         setAuthToken(resData.token);
       }
@@ -51,5 +52,5 @@ export const useAuthQuery = (endpoint: string) => {
     setMessage("");
   }, []);
 
-  return { queryFn, isError, message, clearState };
+  return { queryFn, isLoading, isError, message, clearState };
 };

@@ -1,15 +1,22 @@
 "use client";
 
-import { checkToken } from "@/app/utils/auth";
+import { AuthContext } from "@/AuthContext";
 import { Button } from "@/components/Atoms/Button";
 import { H1 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
-import { MutableRefObject, useEffect, useMemo, useState } from "react";
+import {
+  MutableRefObject,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Cell } from "../components/Cell";
 import { useSnek } from "../hooks/useSnek";
 import { Direction } from "../types";
 import { AuthModalContent } from "./AuthModalContent";
 import { DirectionButtons } from "./DirectionButtons";
+import { checkClientToken } from "@/app/utils/auth";
 
 export default function Game({
   direction,
@@ -20,12 +27,12 @@ export default function Game({
 
   const [isAuth, setIsAuth] = useState<Boolean>(false);
   const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
-    const isValid = checkToken();
+    const isValid = checkClientToken();
     setIsAuthenticated(isValid);
-  }, [isAuth]);
+  }, [isAuth, setIsAuthenticated]);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up

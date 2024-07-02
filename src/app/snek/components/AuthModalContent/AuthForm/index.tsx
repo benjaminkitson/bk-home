@@ -19,7 +19,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({
       <div className="flex w-3/4 flex-col justify-center">{children}</div>
       <Button
         buttonColor="blue"
-        buttonSize="md"
+        buttonSize="lg"
         className="my-5"
         onClick={onSubmit}
       >

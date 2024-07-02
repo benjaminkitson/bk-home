@@ -37,7 +37,7 @@ export const Modal: React.FC<ModalProps> = ({
       )}
       <Card
         className={twMerge(
-          "flex h-96 w-3/4 flex-col items-center justify-center opacity-100 md:w-1/2",
+          "relative flex h-96 w-3/4 flex-col items-center justify-center opacity-100 md:w-1/2",
           cardClassName,
         )}
       >
