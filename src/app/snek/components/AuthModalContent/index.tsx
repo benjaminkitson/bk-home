@@ -2,6 +2,7 @@ import { AuthContext } from "@/AuthContext";
 import { Button } from "@/components/Atoms/Button";
 import { PasswordInput } from "@/components/Atoms/TextInput/PasswordInput";
 import { TextInput } from "@/components/Atoms/TextInput/TextInput";
+import { P } from "@/components/Atoms/Typography";
 import { useContext, useReducer, useState } from "react";
 import { AuthForm } from "./AuthForm";
 import { useAuthQuery } from "./hooks/useAuthQuery";
@@ -16,7 +17,10 @@ type AuthModalState = "SIGN_UP" | "SIGN_IN" | "VERIFY_EMAIL";
 
 const Loader = () => {
   return (
-    <div className="absolute left-0 top-0 z-50 h-full w-full rounded-xl bg-white opacity-70" />
+    <div
+      className="absolute left-0 top-0 z-50 h-full w-full rounded-xl bg-white opacity-70"
+      data-testid="auth-loader"
+    />
   );
 };
 
@@ -109,6 +113,7 @@ export const AuthModalContent: React.FC<AuthModalContentProps> = ({
             value={fields["SIGN_UP_PASSWORD"]}
             placeholder="Password"
           />
+          {signUp.isError && <P>{signUp.message}</P>}
         </AuthForm>
         <Button
           buttonColor="gray"

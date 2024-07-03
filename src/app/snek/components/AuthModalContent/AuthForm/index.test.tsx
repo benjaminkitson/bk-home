@@ -1,6 +1,6 @@
 import { P } from "@/components/Atoms/Typography";
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { AuthForm } from ".";
 
 describe("AuthForm", () => {
@@ -32,7 +32,9 @@ describe("AuthForm", () => {
 
   it("calls the passed onSubmit function when the primary button is clicked", () => {
     const button = screen.getByRole("button");
-    button.click();
+    act(() => {
+      button.click();
+    });
     expect(mockSubmit).toHaveBeenCalled();
   });
 });
