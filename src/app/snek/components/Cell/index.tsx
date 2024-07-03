@@ -16,10 +16,10 @@ const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
   const bg = isSnek
     ? snekBgColour
     : // If not, check if it's food
-    isFood
-    ? foodBgColour
-    : // otherwise, use standard colour
-      `${standardBgColour} opacity-30`;
+      isFood
+      ? foodBgColour
+      : // otherwise, use standard colour
+        `${standardBgColour} opacity-30`;
 
   return (
     <div
