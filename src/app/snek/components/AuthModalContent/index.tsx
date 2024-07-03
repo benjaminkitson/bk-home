@@ -44,8 +44,7 @@ export const AuthModalContent: React.FC<AuthModalContentProps> = ({
           text="Sign In"
           onSubmit={async () => {
             const isSuccess = await signIn.queryFn({
-              // TODO: change this to email her and in API
-              username: fields["SIGN_IN_EMAIL"],
+              email: fields["SIGN_IN_EMAIL"],
               password: fields["SIGN_IN_PASSWORD"],
             });
             if (isSuccess) {
