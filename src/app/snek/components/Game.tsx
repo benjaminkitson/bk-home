@@ -1,6 +1,7 @@
 "use client";
 
 import { AuthContext } from "@/AuthContext";
+import { checkClientToken, deleteToken } from "@/app/utils/auth";
 import { Button } from "@/components/Atoms/Button";
 import { H1 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
@@ -16,7 +17,6 @@ import { useSnek } from "../hooks/useSnek";
 import { Direction } from "../types";
 import { AuthModalContent } from "./AuthModalContent";
 import { DirectionButtons } from "./DirectionButtons";
-import { checkClientToken } from "@/app/utils/auth";
 
 export default function Game({
   direction,
@@ -25,14 +25,15 @@ export default function Game({
 }) {
   const [snekState, dispatch] = useSnek({ directionRef: direction });
 
-  const [isAuth, setIsAuth] = useState<Boolean>(false);
+  const [isAuthFlow, setIsAuthFlow] = useState<Boolean>(false);
   const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
+  // Bit unclear if this is necessary
   useEffect(() => {
     const isValid = checkClientToken();
     setIsAuthenticated(isValid);
-  }, [isAuth, setIsAuthenticated]);
+  }, [isAuthFlow, setIsAuthenticated]);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up
@@ -76,17 +77,17 @@ export default function Game({
         cardClassName="flex flex-col h-1/2 py-16"
         isOpen={!snekState.isActive}
       >
-        {isAuth ? (
+        {isAuthFlow ? (
           <>
             <AuthModalContent
               isInitiallySigningUp={isInitiallySigningUp}
-              exitAuth={() => setIsAuth(false)}
+              exitAuth={() => setIsAuthFlow(false)}
             />
             <Button
               buttonColor="blue"
               buttonSize="sm"
               className="mt-5 w-44"
-              onClick={() => setIsAuth(false)}
+              onClick={() => setIsAuthFlow(false)}
             >
               Continue as Guest
             </Button>
@@ -102,32 +103,46 @@ export default function Game({
             >
               Play!
             </Button>
-            {!isAuthenticated && (
-              <div className="flex w-3/4 justify-center">
-                <Button
-                  buttonColor="gray"
-                  buttonSize="sm"
-                  className="mr-4 mt-10"
-                  onClick={() => {
-                    setisInitiallySigningUp(false);
-                    setIsAuth(true);
-                  }}
-                >
-                  Sign In
-                </Button>
+            <div className="flex w-3/4 justify-center">
+              {!isAuthenticated ? (
+                <>
+                  <Button
+                    buttonColor="gray"
+                    buttonSize="sm"
+                    className="mr-4 mt-10"
+                    onClick={() => {
+                      setisInitiallySigningUp(false);
+                      setIsAuthFlow(true);
+                    }}
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    buttonColor="gray"
+                    buttonSize="sm"
+                    className="mt-10"
+                    onClick={() => {
+                      setisInitiallySigningUp(true);
+                      setIsAuthFlow(true);
+                    }}
+                  >
+                    Sign Up
+                  </Button>
+                </>
+              ) : (
                 <Button
                   buttonColor="gray"
                   buttonSize="sm"
                   className="mt-10"
                   onClick={() => {
-                    setisInitiallySigningUp(true);
-                    setIsAuth(true);
+                    deleteToken();
+                    setIsAuthenticated(false);
                   }}
                 >
-                  Sign Up
+                  Sign Out
                 </Button>
-              </div>
-            )}
+              )}
+            </div>
           </>
         )}
       </Modal>

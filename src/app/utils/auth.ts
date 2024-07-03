@@ -18,11 +18,15 @@ export const checkToken = (token?: string) => {
   if (isJwtPayload(data) && data.exp && data.exp <= Date.now()) {
     return true;
   }
-  document.cookie = "bkAuth=";
+  deleteToken();
   return false;
 };
 
 export const checkClientToken = () => {
   const token = document.cookie.split("=")[1];
   return checkToken(token);
+};
+
+export const deleteToken = () => {
+  document.cookie = "bkAuth=";
 };
