@@ -24,6 +24,6 @@ describe("Button", () => {
 
     const button = screen.getByText(/Test Button/i);
 
-    expect(button.className.split(" ")).toContain("w-60");
+    expect(button.className.split(" ")).toContain("min-w-40");
   });
 });

@@ -1,8 +1,7 @@
 import { AuthContext } from "@/AuthContext";
 import { Button } from "@/components/Atoms/Button";
+import { TextInput } from "@/components/Atoms/TextInput";
 import { PasswordInput } from "@/components/Atoms/TextInput/PasswordInput";
-import { TextInput } from "@/components/Atoms/TextInput/TextInput";
-import { P } from "@/components/Atoms/Typography";
 import { useContext, useReducer, useState } from "react";
 import { AuthForm } from "./AuthForm";
 import { useAuthQuery } from "./hooks/useAuthQuery";
@@ -113,7 +112,6 @@ export const AuthModalContent: React.FC<AuthModalContentProps> = ({
             value={fields["SIGN_UP_PASSWORD"]}
             placeholder="Password"
           />
-          {signUp.isError && <P>{signUp.message}</P>}
         </AuthForm>
         <Button
           buttonColor="gray"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { TextInputProps, textInputClasses } from "./TextInput";
+import { TextInputProps, textInputClasses } from ".";
 
 interface PasswordInputProps extends TextInputProps {}
 

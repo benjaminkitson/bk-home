@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthContext } from "@/AuthContext";
-import { checkClientToken, deleteToken } from "@/app/utils/auth";
+import { checkClientToken } from "@/app/utils/auth";
 import { Button } from "@/components/Atoms/Button";
 import { H1 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
@@ -77,7 +77,11 @@ export default function Game({
         cardClassName="flex flex-col h-1/2 py-16"
         isOpen={!snekState.isActive}
       >
-        {isAuthFlow ? (
+        {
+          // Auth is temporarily disabled
+          // isAuthFlow ? (
+        }
+        {false ? (
           <>
             <AuthModalContent
               isInitiallySigningUp={isInitiallySigningUp}
@@ -103,7 +107,10 @@ export default function Game({
             >
               Play!
             </Button>
-            <div className="flex w-3/4 justify-center">
+            {
+              // Auth disabled
+            }
+            {/* <div className="flex w-3/4 justify-center">
               {!isAuthenticated ? (
                 <>
                   <Button
@@ -142,7 +149,7 @@ export default function Game({
                   Sign Out
                 </Button>
               )}
-            </div>
+            </div> */}
           </>
         )}
       </Modal>
