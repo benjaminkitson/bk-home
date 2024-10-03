@@ -19,7 +19,7 @@ const Content: React.FC<ContentProps> = ({ pokemon }) => {
   }`;
 
   return (
-    <div className="flex w-full flex-1 shrink overflow-y-hidden lg:w-3/4">
+    <div className="flex w-full flex-1 shrink overflow-y-hidden pt-20 lg:w-3/4">
       <div className="no-scrollbar w-full grow overflow-x-hidden overflow-y-scroll px-4 py-12 md:w-1/4">
         {pokemon.map((pokemon: Pokemon, index: number) => (
           <PokedexListItem
