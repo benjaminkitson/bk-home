@@ -1,10 +1,9 @@
+import { H2, P } from "@/components/Atoms/Typography";
 import { Card } from "@/components/Molecules/Card";
 import Image from "next/image";
+import pokedex from "../../../pokedex.png";
 import snek from "../../../snek.png";
 import tictactoe from "../../../tictactoe.png";
-import wordlnt from "../../../wordlnt.png";
-import pokedex from "../../../pokedex.png";
-import { H2, P } from "@/components/Atoms/Typography";
 
 const portfolioItems = [
   {
@@ -21,13 +20,13 @@ const portfolioItems = [
     imgSrc: tictactoe,
     imgAlt: "Tic-Tac-Toe portfolio image",
   },
-  {
-    name: "Wordlnt",
-    description: "A clone of wordle!",
-    href: "/wordlnt",
-    imgSrc: wordlnt,
-    imgAlt: "Wordlnt portfolio image",
-  },
+  // {
+  //   name: "Wordlnt",
+  //   description: "A clone of wordle!",
+  //   href: "/wordlnt",
+  //   imgSrc: wordlnt,
+  //   imgAlt: "Wordlnt portfolio image",
+  // },
   {
     name: "Pokédex",
     description: "A pokédex web app",
