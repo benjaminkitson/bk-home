@@ -55,21 +55,23 @@ export default function Game({
   // const { mutate, status, data, error, isLoading } = useAuth();
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
-      <H1 className="mb-6">{snekState.score}</H1>
-      {grid.map((row, y) => (
-        <div className="flex flex-row" key={y}>
-          {row.map((cell, x) => {
-            const isSnek = snekState.snake.some(
-              (segment) => segment.x === x && segment.y === y,
-            );
-            const isFood = snekState.snakeFood.some(
-              (food) => food.x === x && food.y === y,
-            );
-            return <Cell key={x} isSnek={isSnek} isFood={isFood} />;
-          })}
-        </div>
-      ))}
+    <div className="flex h-screen flex-col items-center justify-center pb-8 pt-28">
+      <H1 className="mb-8 text-4xl md:text-5xl">{snekState.score}</H1>
+      <div className="mb-6 rounded-lg bg-white/10 p-2 shadow-inner backdrop-blur-sm">
+        {grid.map((row, y) => (
+          <div className="flex flex-row" key={y}>
+            {row.map((cell, x) => {
+              const isSnek = snekState.snake.some(
+                (segment) => segment.x === x && segment.y === y,
+              );
+              const isFood = snekState.snakeFood.some(
+                (food) => food.x === x && food.y === y,
+              );
+              return <Cell key={x} isSnek={isSnek} isFood={isFood} />;
+            })}
+          </div>
+        ))}
+      </div>
 
       <DirectionButtons directionRef={direction} />
 

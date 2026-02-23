@@ -36,7 +36,7 @@ export const DirectionButton: React.FC<DirectionButtonProps> = ({
     <Button
       onClick={onClick}
       className={twMerge(
-        "flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 font-bold",
+        "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-sky-600 font-bold shadow-lg ring-2 ring-blue-400/50 hover:shadow-xl hover:ring-sky-300/60",
         className,
       )}
       buttonSize="lg"

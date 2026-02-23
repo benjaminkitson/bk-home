@@ -37,8 +37,8 @@ const SRC_DIR = path.join(PROJECT_ROOT, "src");
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3000";
 
-const VIEWPORT_WIDTH = 800;
-const VIEWPORT_HEIGHT = 400;
+const VIEWPORT_WIDTH = 1920;
+const VIEWPORT_HEIGHT = 1080;
 
 const ROUTES: { path: string; filename: string }[] = [
   { path: "/snek", filename: "snek.png" },
@@ -128,7 +128,7 @@ async function captureThumbnails(startServer = false): Promise<void> {
       console.log(`  Saved ${outPath}`);
     }
   } finally {
-    if (browser) await browser.close();2
+    if (browser) await browser.close();
     if (stopServer) {
       console.log("Stopping dev server...");
       stopServer();

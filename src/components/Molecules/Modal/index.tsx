@@ -24,7 +24,7 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div
       className={twMerge(
-        "absolute left-0 top-0 z-40 h-screen w-screen items-center justify-center bg-gray-300/60 px-10",
+        "absolute left-0 top-0 z-40 h-screen w-screen items-center justify-center bg-blue-300/60 px-10",
         className,
         `${isOpen ? openClasses : "hidden"}`,
       )}

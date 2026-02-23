@@ -1,12 +1,10 @@
 "use client";
 
 // TODO: All of this stuff can be bundled into custom hooks etc
-import React from "react";
-import { useEffect, useState } from "react";
-import { BoardType, GameMode, Player } from "../Content";
-import { SquareContent } from "../Content";
-import mrRobot from "../../utilities/robot";
+import React, { useEffect, useState } from "react";
 import endConditions from "../../utilities/endconditions";
+import mrRobot from "../../utilities/robot";
+import { BoardType, GameMode, Player, SquareContent } from "../Content";
 
 export type AppContextType = {
   gameMode: GameMode | undefined;

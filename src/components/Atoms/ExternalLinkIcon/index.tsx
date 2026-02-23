@@ -26,7 +26,7 @@ export const ExternalLinkIcon: React.FC<ExternalLinkIconProps> = ({
       <Icon
         className={twMerge(
           iconClassName,
-          "fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-sky-800",
+          "fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-purple-600",
         )}
         data-testid="icon-link-icon"
       />

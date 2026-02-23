@@ -5,7 +5,7 @@ interface CellProps {
   isFood: boolean;
 }
 
-export const snekBgColour = "bg-blue-500";
+export const snekBgColour = "bg-blue-700";
 
 export const foodBgColour = "bg-green-500";
 
@@ -23,9 +23,11 @@ const UnmemoizedCell: React.FC<CellProps> = ({ isSnek, isFood }) => {
 
   return (
     <div
-      className={`mb-[2px] mr-[2px] h-2 w-2 rounded-sm border md:h-3 md:w-3 ${bg}`}
+      className={`mb-[2px] mr-[2px] flex h-2 w-2 rounded-sm shadow-sm md:h-4 md:w-4 ${bg}`}
       data-testid="snek-cell"
-    ></div>
+    >
+      {isFood && <div className="h-full w-full animate-ping bg-green-500" />}
+    </div>
   );
 };
 

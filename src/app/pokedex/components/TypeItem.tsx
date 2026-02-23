@@ -1,6 +1,5 @@
-import { Type } from "typescript";
-import { PokemonType } from "../types";
 import { twMerge } from "tailwind-merge";
+import { PokemonType } from "../types";
 
 const bgTypeColors: Record<PokemonType, string> = {
   Grass: "bg-green-500",
@@ -21,7 +20,7 @@ const bgTypeColors: Record<PokemonType, string> = {
   Ice: "bg-blue-200",
   Ghost: "bg-indigo-700",
   // gradient instead
-  Dragon: "bg-lightblue-500",
+  Dragon: "bg-sky-500",
   // contrast wont work
   Dark: "bg-gray-800",
 };

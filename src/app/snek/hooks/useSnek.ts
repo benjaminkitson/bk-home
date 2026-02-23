@@ -54,7 +54,7 @@ export const useSnek = ({
   };
   const initialState: SnekState = {
     currentDirection: undefined,
-    gridSize: 30,
+    gridSize: 40,
     snake: [],
     snakeFood: [],
     tick: 100,
@@ -71,7 +71,7 @@ export const useSnek = ({
     switch (action.type) {
       case "START_GAME":
         startClock(state.tick);
-        const gridSize = 30;
+        const gridSize = state.gridSize;
         const initialCoord = Math.floor(gridSize / 2);
         directionRef.current = "UP";
         return {

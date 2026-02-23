@@ -23,6 +23,18 @@ const config: Config = {
       colors: {
         ...colors,
       },
+      keyframes: {
+        "gradient-crossfade": {
+          "0%": { opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "gradient-crossfade": "gradient-crossfade 12s ease-in-out infinite",
+        "gradient-crossfade-slow":
+          "gradient-crossfade 16s ease-in-out infinite",
+      },
     },
   },
 };
