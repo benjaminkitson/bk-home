@@ -32,7 +32,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <AuthContextProvider token={token}>
-          <div className="h-full min-h-screen w-screen bg-gradient-to-r from-blue-700 to-sky-500">
+          <div className="min-h-screen w-screen bg-gradient-to-r from-blue-700 to-sky-500">
             {children}
           </div>
         </AuthContextProvider>
