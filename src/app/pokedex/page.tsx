@@ -1,5 +1,6 @@
 import { Header } from "@/components/Molecules/Header";
 import Content from "./components/Content";
+import { Pokeball } from "./components/Pokeball";
 
 const getPokemon = async () => {
   const pokemon = await fetch("https://pokedex.benjaminkitson.com/api").then(
@@ -18,7 +19,8 @@ export default async function Pokedex() {
   const pokemon = await getPokemon();
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center">
+    <div className="relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden">
+      <Pokeball />
       <Header title="Pokedex" />
       <Content pokemon={pokemon} />
     </div>

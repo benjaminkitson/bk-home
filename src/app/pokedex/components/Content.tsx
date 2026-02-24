@@ -16,8 +16,8 @@ const Content: React.FC<ContentProps> = ({ pokemon }) => {
 
   const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center overflow-hidden text-white transition-all shadow-xl ring-1 ring-white/20 ${
     currentPokemon
-      ? "bg-gradient-to-br from-blue-600/80 via-blue-500/75 to-sky-600/75"
-      : "bg-gradient-to-br from-blue-600/65 via-blue-500/62 to-sky-600/65 opacity-90"
+      ? "bg-gradient-to-br from-blue-600/75 via-blue-500/72 to-sky-600/70"
+      : "bg-gradient-to-br from-blue-600/72 via-blue-500/68 to-sky-600/68 opacity-90"
   }`;
 
   return (
