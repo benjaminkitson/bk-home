@@ -1,3 +1,4 @@
+import { IconButton } from "@/components/Atoms/IconButton";
 import { AiOutlineClose } from "react-icons/ai";
 import { twMerge } from "tailwind-merge";
 import { Card } from "../Card";
@@ -24,15 +25,17 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div
       className={twMerge(
-        "absolute left-0 top-0 z-40 h-screen w-screen items-center justify-center bg-blue-300/60 px-10",
+        "absolute left-0 top-0 z-40 h-screen w-screen items-center justify-center bg-black/40 px-10 backdrop-blur-sm",
         className,
         `${isOpen ? openClasses : "hidden"}`,
       )}
     >
       {handleClose && (
-        <AiOutlineClose
-          className="absolute right-5 top-5 cursor-pointer text-3xl"
+        <IconButton
+          Icon={AiOutlineClose}
           onClick={handleClose}
+          className="absolute right-5 top-5"
+          aria-label="Close"
         />
       )}
       <Card

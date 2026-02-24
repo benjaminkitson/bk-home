@@ -19,14 +19,14 @@ export const ExternalLinkIcon: React.FC<ExternalLinkIconProps> = ({
   return (
     <a
       href={href}
-      className={className}
+      className={twMerge("group", className)}
       target={openInCurrentTab ? undefined : "_blank"}
       data-testid="icon-link-a"
     >
       <Icon
         className={twMerge(
+          "text-3xl text-white/70 transition duration-300 group-hover:scale-110 group-hover:text-white md:text-4xl",
           iconClassName,
-          "fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-purple-600",
         )}
         data-testid="icon-link-icon"
       />

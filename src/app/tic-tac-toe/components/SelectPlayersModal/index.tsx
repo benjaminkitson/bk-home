@@ -35,7 +35,10 @@ export const SelectPlayersModal = () => {
   const { gameMode } = useContext(AppContext);
 
   return (
-    <Modal isOpen={!gameMode}>
+    <Modal
+      isOpen={!gameMode}
+      cardClassName="bg-gradient-to-br from-blue-600/75 to-sky-600/70 text-white ring-1 ring-white/20 backdrop-blur-sm"
+    >
       <h1 className="mb-10 text-center text-3xl md:mb-0">
         Select number of players:
       </h1>

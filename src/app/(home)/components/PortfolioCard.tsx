@@ -21,7 +21,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
   return (
     <Card
       key={name}
-      className="flex h-full w-full min-w-0 p-0 shadow-md transition-all duration-200 hover:scale-110 lg:h-full lg:flex-col"
+      className="flex h-full w-full min-w-0 bg-gradient-to-br from-blue-600/75 to-sky-600/70 p-0 text-white shadow-md ring-1 ring-white/20 backdrop-blur-sm transition-all duration-200 hover:scale-110 lg:h-full lg:flex-col"
       href={href}
     >
       <Image
@@ -33,7 +33,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({
       />
       <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-visible p-4">
         <H2 className="mb-2 md:mt-2">{name}</H2>
-        <P className="min-h-0">{description}</P>
+        <P className="min-h-0 text-white/90">{description}</P>
       </div>
     </Card>
   );

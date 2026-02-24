@@ -32,11 +32,11 @@ export const Button = ({
   };
 
   const buttonColorMap: Record<ButtonColor, string> = {
-    blue: "bg-gradient-to-br from-blue-400 to-sky-600",
-    gray: "bg-gray-100 hover:bg-gray-300",
+    blue: "bg-gradient-to-br from-blue-400 to-sky-600 ring-1 ring-inset ring-white/10",
+    gray: "bg-gradient-to-br from-white/30 to-white/15 text-white ring-1 ring-inset ring-white/20",
   };
 
-  const showOverlay = buttonColor === "blue" && !isDisabled;
+  const showOverlay = !isDisabled;
 
   const [color, size] = [
     buttonColor ? buttonColorMap[buttonColor] : "",
@@ -44,7 +44,7 @@ export const Button = ({
   ];
 
   const classes = twMerge(
-    "group relative origin-center overflow-hidden transition-all duration-200 ease-in-out",
+    "group relative origin-center transition-all duration-200 ease-in-out",
     !isDisabled && "hover:scale-110",
     `${isDisabled ? "bg-gray-100" : color} ${size}`,
     className,
@@ -58,7 +58,12 @@ export const Button = ({
     >
       {showOverlay && (
         <span
-          className="absolute inset-0 bg-gradient-to-tl from-sky-500 to-blue-700 opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100"
+          className={twMerge(
+            "absolute inset-px overflow-hidden rounded-xl opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100",
+            buttonColor === "blue"
+              ? "bg-gradient-to-tl from-sky-500 to-blue-700"
+              : "bg-white/10",
+          )}
           aria-hidden
         />
       )}

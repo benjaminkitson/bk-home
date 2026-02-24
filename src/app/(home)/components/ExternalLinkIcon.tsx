@@ -20,7 +20,7 @@ export const ExternalLinkIcon: React.FC<ExternalLinkIconProps> = ({
     <a
       href={href}
       className={twMerge(
-        "rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-700",
+        "group rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-700",
         className,
       )}
       target={openInCurrentTab ? undefined : "_blank"}
@@ -28,8 +28,8 @@ export const ExternalLinkIcon: React.FC<ExternalLinkIconProps> = ({
     >
       <Icon
         className={twMerge(
+          "text-3xl text-white/70 transition duration-300 group-hover:scale-110 group-hover:text-white md:text-4xl",
           iconClassName,
-          "fill-gray-100 text-4xl transition duration-500 hover:scale-90 hover:fill-indigo-600",
         )}
       />
     </a>

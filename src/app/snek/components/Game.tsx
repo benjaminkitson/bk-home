@@ -1,21 +1,15 @@
 "use client";
 
-import { AuthContext } from "@/AuthContext";
-import { checkClientToken } from "@/app/utils/auth";
+// import { AuthContext } from "@/AuthContext";
+// import { checkClientToken } from "@/app/utils/auth";
 import { Button } from "@/components/Atoms/Button";
 import { H1 } from "@/components/Atoms/Typography";
 import { Modal } from "@/components/Molecules/Modal";
-import {
-  MutableRefObject,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { MutableRefObject, useMemo } from "react";
 import { Cell } from "../components/Cell";
 import { useSnek } from "../hooks/useSnek";
 import { Direction } from "../types";
-import { AuthModalContent } from "./AuthModalContent";
+// import { AuthModalContent } from "./AuthModalContent";
 import { DirectionButtons } from "./DirectionButtons";
 
 export default function Game({
@@ -25,15 +19,14 @@ export default function Game({
 }) {
   const [snekState, dispatch] = useSnek({ directionRef: direction });
 
-  const [isAuthFlow, setIsAuthFlow] = useState<Boolean>(false);
-  const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  // const [isAuthFlow, setIsAuthFlow] = useState<Boolean>(false);
+  // const [isInitiallySigningUp, setisInitiallySigningUp] = useState(true);
+  // const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
-  // Bit unclear if this is necessary
-  useEffect(() => {
-    const isValid = checkClientToken();
-    setIsAuthenticated(isValid);
-  }, [isAuthFlow, setIsAuthenticated]);
+  // useEffect(() => {
+  //   const isValid = checkClientToken();
+  //   setIsAuthenticated(isValid);
+  // }, [isAuthFlow, setIsAuthenticated]);
 
   /**
    * TODO: Rather than this weird "create an empty array and them generate the grid of cells from it", the grid should just be generated straight up
@@ -76,84 +69,18 @@ export default function Game({
       <DirectionButtons directionRef={direction} />
 
       <Modal
-        cardClassName="flex flex-col h-1/2 py-16"
+        cardClassName="flex flex-col h-1/2 py-16 bg-gradient-to-br from-blue-600/75 to-sky-600/70 text-white ring-1 ring-white/20 backdrop-blur-sm"
         isOpen={!snekState.isActive}
       >
-        {
-          // Auth is temporarily disabled
-          // isAuthFlow ? (
-        }
-        {false ? (
-          <>
-            <AuthModalContent
-              isInitiallySigningUp={isInitiallySigningUp}
-              exitAuth={() => setIsAuthFlow(false)}
-            />
-            <Button
-              buttonColor="blue"
-              buttonSize="sm"
-              className="mt-5 w-44"
-              onClick={() => setIsAuthFlow(false)}
-            >
-              Continue as Guest
-            </Button>
-          </>
-        ) : (
-          <>
-            {snekState.isGameOver && <H1 className="my-10">Game Over</H1>}
-            <Button
-              onClick={() => dispatch({ type: "START_GAME" })}
-              buttonColor="blue"
-              buttonSize="lg"
-              className="h-32 w-52"
-            >
-              Play!
-            </Button>
-            {
-              // Auth disabled
-            }
-            {/* <div className="flex w-3/4 justify-center">
-              {!isAuthenticated ? (
-                <>
-                  <Button
-                    buttonColor="gray"
-                    buttonSize="sm"
-                    className="mr-4 mt-10"
-                    onClick={() => {
-                      setisInitiallySigningUp(false);
-                      setIsAuthFlow(true);
-                    }}
-                  >
-                    Sign In
-                  </Button>
-                  <Button
-                    buttonColor="gray"
-                    buttonSize="sm"
-                    className="mt-10"
-                    onClick={() => {
-                      setisInitiallySigningUp(true);
-                      setIsAuthFlow(true);
-                    }}
-                  >
-                    Sign Up
-                  </Button>
-                </>
-              ) : (
-                <Button
-                  buttonColor="gray"
-                  buttonSize="sm"
-                  className="mt-10"
-                  onClick={() => {
-                    deleteToken();
-                    setIsAuthenticated(false);
-                  }}
-                >
-                  Sign Out
-                </Button>
-              )}
-            </div> */}
-          </>
-        )}
+        {snekState.isGameOver && <H1 className="my-10">Game Over</H1>}
+        <Button
+          onClick={() => dispatch({ type: "START_GAME" })}
+          buttonColor="blue"
+          buttonSize="lg"
+          className="h-32 w-52"
+        >
+          Play!
+        </Button>
       </Modal>
     </div>
   );
