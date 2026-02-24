@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
-    <div className="absolute left-0 top-0 z-50 flex h-24 min-h-fit w-full items-center justify-between bg-blue-600/30 drop-shadow-lg backdrop-blur-md">
+    <div className="absolute left-0 top-0 z-50 flex h-24 min-h-fit w-full items-center justify-between bg-blue-400/40 drop-shadow-lg backdrop-blur-md">
       <div className="flex h-full w-32 items-center justify-center">
         <Link href="/" target={undefined}>
           <TiHome

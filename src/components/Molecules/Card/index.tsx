@@ -15,7 +15,7 @@ export const Card: React.FC<CardProps> = ({
   onClick,
 }) => {
   const cardClasses =
-    "flex w-full rounded-xl bg-slate-50 border border-slate-200/80 text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500";
+    "flex w-full rounded-xl bg-slate-50 ring-1 ring-slate-400/20 text-slate-900 shadow-xl";
 
   return href ? (
     <Link
