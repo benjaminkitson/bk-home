@@ -1,4 +1,3 @@
-import { P } from "@/components/Atoms/Typography";
 import Image from "next/image";
 import { Card } from "@/components/Molecules/Card";
 import { twMerge } from "tailwind-merge";
@@ -20,20 +19,27 @@ export const PokedexListItem: React.FC<PokedexListItemProps> = ({
   return (
     <Card
       className={twMerge(
-        "h-28 items-center justify-center rounded-xl bg-blue-300/30 px-6 transition-all hover:bg-blue-300/50",
+        "flex h-28 items-center gap-5 rounded-xl bg-gradient-to-br from-blue-600/75 to-sky-600/70 px-6 py-4 text-white shadow-md ring-1 ring-white/20 transition-all hover:from-blue-500/80 hover:to-sky-500/75 hover:shadow-lg hover:ring-white/30",
         className,
       )}
       onClick={onClick}
     >
-      <Image
-        width="70"
-        height="70"
-        src={pokemon.thumbImageSrc}
-        alt={pokemon.name}
-        quality={50}
-        priority={prioritiseImage}
-      />
-      <P className="flex grow justify-center">{`#${pokemon.id}: ${pokemon.name}`}</P>
+      <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/10 ring-1 ring-white/15">
+        <Image
+          width="64"
+          height="64"
+          src={pokemon.thumbImageSrc}
+          alt={pokemon.name}
+          quality={50}
+          priority={prioritiseImage}
+        />
+      </div>
+      <div className="min-w-0 flex-1">
+        <span className="text-sm font-medium text-white/80">
+          #{pokemon.id}:
+        </span>{" "}
+        <span className="font-semibold tracking-tight">{pokemon.name}</span>
+      </div>
     </Card>
   );
 };

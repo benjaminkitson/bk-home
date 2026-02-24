@@ -14,13 +14,15 @@ interface ContentProps {
 const Content: React.FC<ContentProps> = ({ pokemon }) => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon>();
 
-  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center transition-all ${
-    currentPokemon ? "bg-blue-300" : "bg-blue-300/50"
+  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center overflow-hidden text-white transition-all shadow-xl ring-1 ring-white/20 ${
+    currentPokemon
+      ? "bg-gradient-to-br from-blue-600/80 via-blue-500/75 to-sky-600/75"
+      : "bg-gradient-to-br from-blue-600/65 via-blue-500/62 to-sky-600/65 opacity-90"
   }`;
 
   return (
-    <div className="flex w-full flex-1 shrink overflow-y-hidden pt-20 lg:w-3/4">
-      <div className="no-scrollbar w-full grow overflow-x-hidden overflow-y-scroll px-4 py-12 md:w-1/4">
+    <div className="flex w-full flex-1 shrink overflow-y-hidden lg:w-2/3">
+      <div className="no-scrollbar h-full grow overflow-x-hidden overflow-y-scroll px-4 pb-12 pt-32 md:w-1/4">
         {pokemon.map((pokemon: Pokemon, index: number) => (
           <PokedexListItem
             key={pokemon.name}

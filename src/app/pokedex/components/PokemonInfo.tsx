@@ -21,43 +21,34 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
   }
 
   return (
-    <div
-      className={`flex h-full w-full flex-col items-center justify-center p-5`}
-    >
-      <Card className="relative h-[350px] w-full border border-gray-400/50 bg-blue-400/50">
-        {/* <div
-            className={`absolute z-20 flex h-full w-full items-center justify-center ${
-              isLoading ? "opacity-100" : "opacity-0"
-            } transition-opacity duration-1000`}
-          >
-            <TbPokeball className="animate-spin text-9xl" />
-          </div> */}
+    <div className="flex h-full w-full flex-col items-center justify-center gap-8 p-6">
+      <Card className="relative h-[350px] w-full overflow-hidden rounded-t-xl bg-gradient-to-b from-blue-500/50 to-sky-600/45 shadow-inner ring-1 ring-white/20">
         <Image
-          className={`${
-            // This isn't great, but is a start
+          className={`object-contain transition-opacity duration-500 ${
             isLoading ? "opacity-0" : "opacity-100"
-          } w-full transition-opacity duration-500`}
+          }`}
           alt="Main pokemon image"
           src={pokemon.mainImageSrc}
-          fill={true}
+          fill
           priority
           onLoad={() => {
             setIsLoading(false);
           }}
-          objectFit="contain"
         />
       </Card>
-      <div className="flex grow flex-col items-center justify-start p-5">
-        <>
-          <H1 className="mb-3">{pokemon.name}</H1>
-          <H2 className="mb-2">Ability: {pokemon.ability}</H2>
-          <P className="grow text-justify">{pokemon.description}</P>
-          <div className="my-5 flex">
-            {pokemon.types.map((type) => (
-              <TypeItem type={type} key={type} className="mx-2" />
-            ))}
-          </div>
-        </>
+      <div className="flex grow flex-col items-center justify-start border-t border-white/10 px-8 pt-6 text-center">
+        <H1 className="mb-2">{pokemon.name}</H1>
+        <H2 className="mb-3 text-xl text-white/80 md:text-2xl">
+          Ability: <span className="font-semibold text-white">{pokemon.ability}</span>
+        </H2>
+        <P className="max-w-prose grow text-justify text-white/95">
+          {pokemon.description}
+        </P>
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          {pokemon.types.map((type) => (
+            <TypeItem type={type} key={type} />
+          ))}
+        </div>
       </div>
     </div>
   );
