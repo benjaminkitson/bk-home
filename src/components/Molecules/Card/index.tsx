@@ -5,7 +5,7 @@ export interface CardProps {
   children?: React.ReactNode;
   className?: string;
   href?: string;
-  onClick?: () => unknown;
+  onClick?: (e: React.MouseEvent) => unknown;
 }
 
 export const Card: React.FC<CardProps> = ({

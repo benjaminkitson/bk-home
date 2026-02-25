@@ -1,8 +1,8 @@
 "use client";
 
 import { IconButton } from "@/components/Atoms/IconButton";
-import { FONT_DISPLAY_NAMES, FONT_IDS, useSettings } from "@/SettingsContext";
 import { Card } from "@/components/Molecules/Card";
+import { FONT_DISPLAY_NAMES, FONT_IDS, useSettings } from "@/SettingsContext";
 import { AiOutlineClose } from "react-icons/ai";
 
 export function SettingsModal() {
