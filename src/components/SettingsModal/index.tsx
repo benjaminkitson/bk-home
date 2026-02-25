@@ -1,11 +1,7 @@
 "use client";
 
 import { IconButton } from "@/components/Atoms/IconButton";
-import {
-  FONT_DISPLAY_NAMES,
-  FONT_IDS,
-  useSettings,
-} from "@/SettingsContext";
+import { FONT_DISPLAY_NAMES, FONT_IDS, useSettings } from "@/SettingsContext";
 import { Card } from "@/components/Molecules/Card";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -33,7 +29,9 @@ export function SettingsModal() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 id="settings-title" className="text-xl font-semibold">Settings</h2>
+          <h2 id="settings-title" className="text-xl font-semibold">
+            Settings
+          </h2>
           <IconButton
             Icon={AiOutlineClose}
             onClick={closeSettings}

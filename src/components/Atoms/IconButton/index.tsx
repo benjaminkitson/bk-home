@@ -33,7 +33,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
       )}
       {...rest}
     >
-      <Icon className={twMerge("text-3xl transition duration-300 md:text-4xl", iconClassName)} />
+      <Icon
+        className={twMerge(
+          "text-3xl transition duration-300 md:text-4xl",
+          iconClassName,
+        )}
+      />
     </button>
   );
 };

@@ -14,19 +14,29 @@ export const Card: React.FC<CardProps> = ({
   href,
   onClick,
 }) => {
-  const cardClasses =
-    "flex w-full rounded-xl bg-slate-50 ring-1 ring-slate-400/20 text-slate-900 shadow-xl";
+  const isInteractive = !!href || !!onClick;
+
+  const cardClasses = twMerge(
+    "flex w-full rounded-xl bg-gradient-to-br from-blue-600/70 to-sky-500/60 ring-1 ring-white/20 text-white shadow-xl",
+    isInteractive && "group relative",
+    className,
+  );
+
+  const hoverOverlay = isInteractive && (
+    <span
+      className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-tl from-sky-400/30 to-blue-800/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      aria-hidden
+    />
+  );
 
   return href ? (
-    <Link
-      className={twMerge(cardClasses, className)}
-      href={href}
-      onClick={onClick}
-    >
+    <Link className={cardClasses} href={href} onClick={onClick}>
+      {hoverOverlay}
       {children}
     </Link>
   ) : (
-    <div onClick={onClick} className={twMerge(cardClasses, className)}>
+    <div onClick={onClick} className={cardClasses}>
+      {hoverOverlay}
       {children}
     </div>
   );

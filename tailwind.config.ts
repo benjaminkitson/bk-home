@@ -29,11 +29,17 @@ const config: Config = {
           "50%": { opacity: "1" },
           "100%": { opacity: "0" },
         },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "20%, 60%": { transform: "translateX(-4px)" },
+          "40%, 80%": { transform: "translateX(4px)" },
+        },
       },
       animation: {
         "gradient-crossfade": "gradient-crossfade 12s ease-in-out infinite",
         "gradient-crossfade-slow":
           "gradient-crossfade 16s ease-in-out infinite",
+        shake: "shake 0.4s ease-in-out",
       },
     },
   },

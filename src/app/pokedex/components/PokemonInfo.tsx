@@ -21,8 +21,8 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
   }
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-8 p-6">
-      <Card className="relative h-[350px] w-full overflow-hidden rounded-t-xl bg-gradient-to-b from-blue-500/50 to-sky-600/45 shadow-inner ring-1 ring-white/20">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-6">
+      <Card className="relative h-[280px] w-full shrink-0 overflow-hidden shadow-inner">
         <Image
           className={`object-contain transition-opacity duration-500 ${
             isLoading ? "opacity-0" : "opacity-100"
@@ -36,15 +36,16 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ pokemon }) => {
           }}
         />
       </Card>
-      <div className="flex grow flex-col items-center justify-start border-t border-white/10 px-8 pt-6 text-center">
+      <div className="flex grow flex-col items-center justify-start border-t border-white/10 px-8 pt-5 text-center">
         <H1 className="mb-2">{pokemon.name}</H1>
         <H2 className="mb-3 text-xl text-white/80 md:text-2xl">
-          Ability: <span className="font-semibold text-white">{pokemon.ability}</span>
+          Ability:{" "}
+          <span className="font-semibold text-white">{pokemon.ability}</span>
         </H2>
-        <P className="max-w-prose grow text-justify text-white/95">
+        <P className="max-w-prose text-justify text-white/95">
           {pokemon.description}
         </P>
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
+        <div className="mt-auto flex flex-wrap justify-center gap-2 pt-4">
           {pokemon.types.map((type) => (
             <TypeItem type={type} key={type} />
           ))}

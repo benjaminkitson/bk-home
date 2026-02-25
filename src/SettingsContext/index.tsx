@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import {
   DEFAULT_FONT,
   FONT_DISPLAY_NAMES,
@@ -38,7 +44,8 @@ export function SettingsProvider({
   fontMap: FontMap;
   initialFontId: FontId;
 }) {
-  const [selectedFontId, setSelectedFontIdState] = useState<FontId>(initialFontId);
+  const [selectedFontId, setSelectedFontIdState] =
+    useState<FontId>(initialFontId);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const setSelectedFontId = useCallback((id: FontId) => {
@@ -65,11 +72,13 @@ export function SettingsProvider({
       isSettingsOpen,
       openSettings,
       closeSettings,
-    ]
+    ],
   );
 
   return (
-    <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>
+    <SettingsContext.Provider value={value}>
+      {children}
+    </SettingsContext.Provider>
   );
 }
 

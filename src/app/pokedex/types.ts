@@ -28,5 +28,5 @@ export type Pokemon = {
   name: string;
   thumbImageSrc: string;
   types: PokemonType[];
-  weight: 7;
+  weight: Number;
 };

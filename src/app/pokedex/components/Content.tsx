@@ -14,10 +14,10 @@ interface ContentProps {
 const Content: React.FC<ContentProps> = ({ pokemon }) => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon>();
 
-  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center overflow-hidden text-white transition-all shadow-xl ring-1 ring-white/20 ${
+  const pokemonInfoCardClassName = `relative flex h-3/4 min-h-[500px] w-full flex-col items-center overflow-hidden bg-transparent text-white transition-all shadow-xl ring-1 ring-white/20 ${
     currentPokemon
-      ? "bg-gradient-to-br from-blue-600/75 via-blue-500/72 to-sky-600/70"
-      : "bg-gradient-to-br from-blue-600/72 via-blue-500/68 to-sky-600/68 opacity-90"
+      ? "bg-gradient-to-br from-blue-700/75 via-blue-600/72 to-blue-500/70"
+      : "bg-gradient-to-br from-blue-700/72 via-blue-600/68 to-blue-500/68 opacity-90"
   }`;
 
   return (
@@ -34,9 +34,22 @@ const Content: React.FC<ContentProps> = ({ pokemon }) => {
         ))}
       </div>
       <div className="hidden h-full w-3/5 min-w-[500px] flex-col items-center justify-center py-14 pr-4 md:flex">
-        <Card className={pokemonInfoCardClassName}>
-          <PokemonInfo pokemon={currentPokemon} />
-        </Card>
+        {currentPokemon ? (
+          <Card className={pokemonInfoCardClassName}>
+            <PokemonInfo pokemon={currentPokemon} />
+          </Card>
+        ) : (
+          <div className="flex h-3/4 min-h-[500px] w-full flex-col items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white/40">
+            <img
+              src="/images/pokeball.svg"
+              alt=""
+              width={80}
+              height={80}
+              className="mb-4 opacity-20"
+            />
+            <p className="text-lg font-medium">Select a Pok&eacute;mon</p>
+          </div>
+        )}
       </div>
       <Modal
         cardClassName={pokemonInfoCardClassName}

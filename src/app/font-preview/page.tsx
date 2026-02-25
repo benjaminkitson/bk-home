@@ -53,11 +53,10 @@ export default function FontPreviewPage() {
         >
           ← Back home
         </Link>
-        <h1 className="mb-2 text-2xl font-semibold text-white">
-          Font preview
-        </h1>
+        <h1 className="mb-2 text-2xl font-semibold text-white">Font preview</h1>
         <p className="mb-12 text-white/80">
-          Same content in each font. Compare headings, list style, and body text.
+          Same content in each font. Compare headings, list style, and body
+          text.
         </p>
         <div className="flex flex-col gap-16">
           {fonts.map(({ name, font }) => (
@@ -78,8 +77,9 @@ export default function FontPreviewPage() {
                 #1: Bulbasaur
               </p>
               <p className="max-w-prose text-base font-light leading-relaxed text-white/90">
-                There is a plant seed on its back right from the day this Pokémon
-                is born. The seed slowly grows larger. Ability: Overgrow.
+                There is a plant seed on its back right from the day this
+                Pokémon is born. The seed slowly grows larger. Ability:
+                Overgrow.
               </p>
             </section>
           ))}

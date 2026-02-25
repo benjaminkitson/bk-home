@@ -73,24 +73,24 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         {/* <AuthContextProvider token={token}> */}
-          <FontAndSettingsWrapper fontMap={fontMap} initialFontId={initialFontId}>
-            <div className="relative min-h-screen w-screen text-white">
+        <FontAndSettingsWrapper fontMap={fontMap} initialFontId={initialFontId}>
+          <div className="relative min-h-screen w-screen text-white">
             <div
               className="absolute inset-0 bg-gradient-to-r from-blue-700 to-sky-500"
               aria-hidden
             />
             <div
-              className="absolute inset-0 bg-gradient-to-bl from-indigo-700 to-cyan-400 animate-gradient-crossfade pointer-events-none"
+              className="pointer-events-none absolute inset-0 animate-gradient-crossfade bg-gradient-to-bl from-indigo-700 to-cyan-400"
               aria-hidden
             />
             <div
-              className="absolute inset-0 bg-gradient-to-tr from-violet-700 to-sky-500 animate-gradient-crossfade-slow pointer-events-none"
+              className="pointer-events-none absolute inset-0 animate-gradient-crossfade-slow bg-gradient-to-tr from-violet-700 to-sky-500"
               aria-hidden
             />
             <MouseGlow />
             <div className="relative z-10">{children}</div>
-            </div>
-          </FontAndSettingsWrapper>
+          </div>
+        </FontAndSettingsWrapper>
         {/* </AuthContextProvider> */}
       </body>
     </html>

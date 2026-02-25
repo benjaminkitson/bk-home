@@ -22,7 +22,7 @@ export function Pokeball() {
         alt=""
         width={640}
         height={640}
-        className="pointer-events-none select-none opacity-25 lg:w-[min(70vw,800px)] lg:h-auto"
+        className="pointer-events-none select-none opacity-25 lg:h-auto lg:w-[min(70vw,800px)]"
         style={{ transform: `rotate(${rotation}deg)` }}
       />
     </div>

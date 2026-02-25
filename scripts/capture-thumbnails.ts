@@ -44,6 +44,7 @@ const ROUTES: { path: string; filename: string }[] = [
   { path: "/snek", filename: "snek.png" },
   { path: "/tic-tac-toe", filename: "tictactoe.png" },
   { path: "/pokedex", filename: "pokedex.png" },
+  { path: "/w6rdle", filename: "w6rdle.png" },
 ];
 
 function waitForServer(

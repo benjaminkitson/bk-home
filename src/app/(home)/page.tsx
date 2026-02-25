@@ -6,6 +6,7 @@ import me from "../../me.png";
 import pokedex from "../../pokedex.png";
 import snek from "../../snek.png";
 import tictactoe from "../../tictactoe.png";
+import w6rdle from "../../w6rdle.png";
 import { ExternalLinkIcon } from "./components/ExternalLinkIcon";
 import { PortfolioCard } from "./components/PortfolioCard";
 
@@ -24,19 +25,19 @@ const portfolioItems = [
     imgSrc: tictactoe,
     imgAlt: "Tic-Tac-Toe portfolio image",
   },
-  // {
-  //   name: "Wordlnt",
-  //   description: "A clone of wordle!",
-  //   href: "/wordlnt",
-  //   imgSrc: wordlnt,
-  //   imgAlt: "Wordlnt portfolio image",
-  // },
   {
     name: "Pokédex",
     description: "A pokédex web app",
     href: "/pokedex",
     imgSrc: pokedex,
     imgAlt: "Pokédex portfolio image",
+  },
+  {
+    name: "W6RDLE",
+    description: "Wordle, but with 6 letters",
+    href: "/w6rdle",
+    imgSrc: w6rdle,
+    imgAlt: "W6RDLE portfolio image",
   },
 ];
 

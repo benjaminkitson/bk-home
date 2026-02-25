@@ -1,9 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { SettingsCogButton } from "@/components/SettingsCogButton";
+import { usePathname } from "next/navigation";
 
-const ROUTES_WITH_HEADER = ["/pokedex", "/snek", "/tic-tac-toe"];
+const ROUTES_WITH_HEADER = ["/pokedex", "/snek", "/tic-tac-toe", "/w6rdle"];
 
 export function FloatingSettingsTrigger() {
   const pathname = usePathname();
