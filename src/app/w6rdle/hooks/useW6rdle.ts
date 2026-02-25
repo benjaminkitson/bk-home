@@ -8,7 +8,7 @@ const MAX_GUESSES = 6;
 function evaluateGuess(guess: string, target: string): EvaluatedLetter[] {
   const result: EvaluatedLetter[] = guess.split("").map((letter) => ({
     letter,
-    state: "absent" as LetterState,
+    state: "ABSENT" as LetterState,
   }));
 
   const targetLetters = target.split("");

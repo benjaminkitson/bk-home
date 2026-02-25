@@ -8,10 +8,10 @@ const ROWS = [
 ];
 
 const stateClasses: Record<LetterState, string> = {
-  correct: "bg-emerald-500 text-white",
-  present: "bg-amber-500 text-white",
-  absent: "bg-white/10 text-white/40",
-  empty: "bg-white/20 text-white",
+  CORRECT: "bg-emerald-500 text-white",
+  PRESENT: "bg-amber-500 text-white",
+  ABSENT: "bg-white/10 text-white/40",
+  EMPTY: "bg-white/20 text-white",
 };
 
 interface KeyboardProps {
@@ -25,7 +25,7 @@ export function Keyboard({ keyboardState, onKey }: KeyboardProps) {
       {ROWS.map((row, i) => (
         <div key={i} className="flex gap-1">
           {row.map((key) => {
-            const state = keyboardState[key] ?? "empty";
+            const state = keyboardState[key] ?? "EMPTY";
             const isWide = key === "ENTER" || key === "BACKSPACE";
             const label = key === "BACKSPACE" ? "⌫" : key;
 
